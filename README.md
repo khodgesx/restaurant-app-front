@@ -1,2 +1,2 @@
-# restaurant-app-font
+# restaurant-app-front
 restaurant - react
