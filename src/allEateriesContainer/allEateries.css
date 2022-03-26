@@ -1,0 +1,16 @@
+#all-eateries{
+    margin:20px;
+    border:solid 3px pink;
+    padding:25px;
+}
+
+img{
+    height:200px;
+}
+#all-eateries h1, h3{
+    text-align: center;
+}
+#two-lists{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

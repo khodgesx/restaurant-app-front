@@ -1,0 +1,16 @@
+.App {
+  border: solid 4px green;
+  margin:5px;
+}
+#title{
+  text-align: center;
+  border: solid 3px rgb(52, 52, 223);
+  margin: 5px;
+}
+#sign-up, #login{
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background-color: rgb(212, 94, 65);
+  color:white;
+}
