@@ -13,4 +13,18 @@ img{
 #two-lists{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap:15px;
+}
+
+#bootstrap-example{
+    border: solid 3px black;
+    padding: 5px;
+    text-align: center;
+    height: 500px;
+    width: 500px;
+    overflow: scroll;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+
 }

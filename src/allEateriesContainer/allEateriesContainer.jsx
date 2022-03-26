@@ -1,13 +1,19 @@
 import { useState, useEffect } from "react";
+import {Container, Row, Col, Button, Alert, Breadcrumb, Form, Card} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
 import VisitedComponent from "./visitedComponent/visitedComponent";
 import ('./allEateries.css')
 
-const AllEateriesContainer = () =>{
-    const [eateries, setEateries] = useState([{'name':'The Carvery', 'visited':true, 'cuisine':'american', 'img':'https://i.imgur.com/5CPHDIS.jpg', 'faveDish':'brie appetizer', 'notes':'sit outside', 'priceRange':2, 'user':'1'}, {'name':'The Carvery', 'visited':true, 'cuisine':'american', 'img':'https://i.imgur.com/5CPHDIS.jpg', 'faveDish':'brie appetizer', 'notes':'sit outside', 'priceRange':2, 'user':'1'}, {'name':'The Carvery', 'visited':true, 'cuisine':'american', 'img':'https://i.imgur.com/5CPHDIS.jpg', 'faveDish':'brie appetizer', 'notes':'sit outside', 'priceRange':2, 'user':'1'},{'name':'Heritage', 'visited':false, 'cuisine':'american', 'img':'https://i.imgur.com/TTMkE71.jpg', 'faveDish':'', 'notes':'tasting-menu', 'priceRange':2, 'user':'1'}, {'name':'Heritage', 'visited':false, 'cuisine':'american', 'img':'https://i.imgur.com/TTMkE71.jpg', 'faveDish':'', 'notes':'tasting-menu', 'priceRange':2, 'user':'1'}])
 
-    // const [newEatery, setNewEatery] = useState()
+
+const AllEateriesContainer = () =>{
+    const [eateries, setEateries] = useState([])
+    const [visited, setVisited] = useState([])
+    const [toTry, setToTry] = useState ([])
+
+  
     //create:
     const createNew = async (newPlace) =>{
         const createResponse = await fetch ('http://localhost:3001/restaurants',{
@@ -24,15 +30,127 @@ const AllEateriesContainer = () =>{
             console.log(parsedResponse.data)
         }
     }
+    //get all:
+    const getEateries = async ()=>{
+        try{
+            const eateries = await fetch ('http://localhost:3001/restaurants')
+            const parsedEateries = await eateries.json()
+            setEateries(parsedEateries.data)
+            // console.log(parsedEateries.data)
+        }catch(err){
+            console.log(err)
+        }
+        
+    }
+    useEffect(getEateries, [])
+
+    //get visited:
+    const getVisited = async ()=>{
+        try{
+            const visited = await fetch ('http://localhost:3001/restaurants')
+            const parsedVisited = await visited.json()
+            const vPlaces = parsedVisited.data
+            // const visitedPlaces = [];
+            // for(let i=0; i<places.length; i++){
+            //     if(places[i].visited === true){
+            //         visitedPlaces.push(places[i])
+            //     }
+            // }
+            // setVisited(visitedPlaces)
+            // console.log(visitedPlaces)
+            const visistedPlaces = vPlaces.filter((place)=>{
+                return place.visited === true
+            })
+            setVisited(visistedPlaces)
+            console.log(visistedPlaces)
+        }catch(err){
+            console.log(err)
+        }
+        
+    }
+    useEffect(getVisited, [])
+
+    //get to try:
+    const getToTry = async ()=>{
+        try{
+            const toTry = await fetch ('http://localhost:3001/restaurants')
+            const parsedToTry = await toTry.json()
+            const tPlaces = parsedToTry.data
+            const toTryPlaces = tPlaces.filter((place)=>{
+                return place.visited === false
+            })
+            setToTry(toTryPlaces)
+            // console.log(toTryPlaces)
+        }catch(err){
+            console.log(err)
+        }
+        
+    }
+    useEffect(getToTry, [])
+
+    //edit:
+
+    //delete:
+
+
     return(
         <div id="all-eateries">
+            <NewEateryComponent createNew={createNew}></NewEateryComponent>
             <h1>My Mood:</h1>
-            <h3>gif? or image? pointing to one or the other?</h3>
+            <Button>Choose for me!</Button>
+            <h5>generates random choice from all restaurants db</h5>
             <section id="two-lists">
-                <NewEateryComponent createNew={createNew}></NewEateryComponent>
-                <VisitedComponent eateries={eateries}></VisitedComponent>
-                <ToTryComponent eateries={eateries}></ToTryComponent>
+                <VisitedComponent eateries={eateries} visited={visited}></VisitedComponent>
+                <ToTryComponent eateries={eateries} toTry={toTry}></ToTryComponent>
             </section>
+
+
+
+
+
+
+            <section id="bootstrap-example">
+        <Container>
+        <Form>
+          <Row>
+            {/* md makes columns responsive for smaller screen */}
+            <Col md>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email Address</Form.Label>
+              <Form.Control type="email" placeholder="example@email.com"></Form.Control>
+              <Form.Text className="text-muted">We'll never share your email address, trust!</Form.Text>
+          </Form.Group>
+          
+            </Col>
+            <Col md>
+              <Form.Group>
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password"></Form.Control>
+            </Form.Group>
+            </Col>
+          </Row>
+          
+          <Button variant="secondary" type="submit">Login</Button>
+        </Form>
+      <Card className="mb-3"style={{color:"#000"}}>
+          <Card.Img src="https://i.imgur.com/IsRaUa5.png/75/50" />
+          <Card.Body>
+            <Card.Title>Card Example</Card.Title>
+            <Card.Text>This is an ex of react bootstrap cards</Card.Text>
+            <Button variant="primary">Read More</Button>
+          </Card.Body>
+        </Card>
+        <Breadcrumb>
+        <Breadcrumb.Item>Test</Breadcrumb.Item>
+        <Breadcrumb.Item>Test 2</Breadcrumb.Item>
+        <Breadcrumb.Item active>Test 3</Breadcrumb.Item>
+        </Breadcrumb>
+        <Alert variant="success">This is a button</Alert>
+        <Button>Test Button</Button>
+        </Container>
+
+        
+      </section>
             
         </div>
     )

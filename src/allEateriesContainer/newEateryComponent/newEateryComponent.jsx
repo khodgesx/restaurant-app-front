@@ -4,13 +4,12 @@ const NewEateryComponent = (props) =>{
     //state of new item before user inputs changes
     const [newPlace, setNewplace] = useState({
         name:'',
-        visited: false,
+        visited: true,
         cuisine: '',
         img: 'https://i.imgur.com/IsRaUa5.png',
         faveDish:'',
         notes:'',
-        priceRange: 1,
-        user:1
+        priceLevel: "$"
     })
     const [showing, setShowing] = useState(false)
     //funciton for toggleShow
@@ -38,55 +37,55 @@ const NewEateryComponent = (props) =>{
             <form onSubmit={submitNew} encType="multipart/form-data">
                 <div className="form-row">
                     <label htmlFor="name">Restaurant Name:</label>
-                    <input type="text" name="name" required></input>
+                    <input onChange ={inputChange} type="text" name="name" value={newPlace.name}></input>
                 </div>
 
                 <div className="form-row">
                     <label htmlFor="name">Cuisine:</label>
-                    <input type="text" name="cuisine"></input>
+                    <input onChange ={inputChange}type="text" name="cuisine" value={newPlace.cuisine}></input>
                 </div>
                 
                 <div className="form-row">
                     <label htmlFor="name">Photo:</label>
-                    <input type="file" name="img" accept="image/png, image/jpeg"></input>
+                    <input onChange ={inputChange} type="text" name="img" value={newPlace.img}accept="image/png, image/jpeg"></input>
                 </div>
                 <div className="form-row">
                     {/* <label htmlFor="name">Favorite Dish:</label>
-                    <input type="text" name="faveDish"></input> */}
+                    <input onChange ={inputChange}type="text" name="faveDish"></input> */}
                 </div>
 
                 <div className="form-row"> 
                     <label htmlFor="name">Notes:</label>
-                    <input type="text" name="notes"></input>
+                    <input onChange ={inputChange} type="text" name="notes"value={newPlace.notes}></input>
                 </div>
 
                 <div className="form-row">
                         <label htmlFor="price-level">Price:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">
-                                <input type="radio" name="priceLevel" value="$"></input>
+                                <input onChange ={inputChange} type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
                                 <label htmlFor="price-level-one">$</label>
                             </div>
                             <div className="radio-option-container">
-                                <input type="radio" name="priceLevel" value="$$"></input>
-                                <label htmlFor="price-level-two">$$</label>
+                                <input type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
+                                <label onChange ={inputChange} htmlFor="price-level-two">$$</label>
                             </div>
                             <div className="radio-option-container">
-                                <input type="radio" name="priceLevel" value="$$$"></input>
+                                <input onChange ={inputChange} type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
                                 <label htmlFor="price-level-three">$$$</label>
                             </div>
                         </div>
                 </div>
 
                 <div className="form-row">
-                        <label for="visited">Visited:</label>
+                        <label htmlFor="visited">Visited:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">
-                                <input type="radio" name="visited" value="true"></input>
+                                <input onChange ={inputChange} type="radio" name="visited" value={newPlace.visited}></input>
                                 <label htmlFor="visited-yes">Yes</label>
                             </div>
                             <div className="radio-option-container">
-                                <input type="radio" name="visited" value="false"></input>
+                                <input onChange ={inputChange} type="radio" name="visited" value={newPlace.visited}></input>
                                 <label htmlFor="visited-no">No</label>
                             </div>
                         </div>

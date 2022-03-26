@@ -4,7 +4,7 @@ import ('./toTry.css')
 
 const ToTryComponent = (props) =>{
 
-    const [toTry, setToTry] = useState([{'name':'Heritage', 'visited':false, 'cuisine':'american', 'img':'https://i.imgur.com/TTMkE71.jpg', 'faveDish':'', 'notes':'tasting-menu', 'priceRange':2, 'user':'1'}, {'name':'Heritage', 'visited':false, 'cuisine':'american', 'img':'https://i.imgur.com/TTMkE71.jpg', 'faveDish':'', 'notes':'tasting-menu', 'priceRange':2, 'user':'1'}])
+    const [toTry, setToTry] = useState([])
     
     return(
         <div id="to-try">
