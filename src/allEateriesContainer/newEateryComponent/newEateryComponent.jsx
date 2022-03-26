@@ -4,7 +4,7 @@ const NewEateryComponent = (props) =>{
     //state of new item before user inputs changes
     const [newPlace, setNewplace] = useState({
         name:'',
-        visited: true,
+        visited: false,
         cuisine: '',
         img: 'https://i.imgur.com/IsRaUa5.png',
         faveDish:'',

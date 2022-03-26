@@ -62,7 +62,7 @@ const AllEateriesContainer = () =>{
                 return place.visited === true
             })
             setVisited(visistedPlaces)
-            console.log(visistedPlaces)
+            // console.log(visistedPlaces)
         }catch(err){
             console.log(err)
         }
@@ -92,15 +92,27 @@ const AllEateriesContainer = () =>{
 
     //delete:
 
+    //get random choice:
+    const [random, setRandom] = useState({})
+    const getRandom = ()=>{
+         const newRandom = eateries[Math.floor(Math.random()*eateries.length)]
+         setRandom(newRandom)
+    }
+     
 
     return(
         <div id="all-eateries">
-            <NewEateryComponent createNew={createNew}></NewEateryComponent>
+            <div id="create-new">
+                <NewEateryComponent createNew={createNew}></NewEateryComponent>
+            </div>
+            
             <h1>My Mood:</h1>
-            <Button>Choose for me!</Button>
-            <h5>generates random choice from all restaurants db</h5>
+            <div className="random">
+            <Button onClick={getRandom}>Choose for me!</Button>
+            <h5>{random.name}</h5>
+            </div>
             <section id="two-lists">
-                <VisitedComponent eateries={eateries} visited={visited}></VisitedComponent>
+                <VisitedComponent eateries={eateries} visited={visited} visitedName={visited.name}></VisitedComponent>
                 <ToTryComponent eateries={eateries} toTry={toTry}></ToTryComponent>
             </section>
 

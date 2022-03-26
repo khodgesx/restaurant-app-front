@@ -11,7 +11,7 @@ function App() {
         <button id="login">Login</button> */}
       </nav>
       <h1 id="title">Welcome to Yummy Decisions</h1>
-      <h3>(if user is logged in):Welcome -displayName-</h3>
+      {/* <h3>(if user is logged in):Welcome -displayName-</h3> */}
 
       <AllEateriesContainer></AllEateriesContainer>
     </div>

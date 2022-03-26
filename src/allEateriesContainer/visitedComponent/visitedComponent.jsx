@@ -1,27 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SingleVisitedComponent from "./singleVisitedComponent/singleVisitedComponent";
 import ('./visited.css')
 
 
 const VisitedComponent = (props) =>{
-    // //get all eateries from parent allEateriesComponent
-    // //then pass that property into a for loop to make a new array of triedPlaces
-    // //pass triedPlaces to list to .map those tried?
-    // const [triedPlaces, setTriedPlaces] = useState([])
-    // const getTried =()=>{
-    //     for(let i=0; i<props.eateries.length; i++){
-    //         const triedPlaces = [];
-    //         if(props.eateries[i].visited === true){
-    //             triedPlaces.push(props.eateries[i])
-    //         }
-    //     }
-    //     setTriedPlaces(triedPlaces)
-    // }
+    //this component was given the array of visisted place via props
+
+    const showVisited =()=>{
+        const visitedArray = props.visited
+        const visitedOne = props.visited[0]
+        const name = props.visistedName
+        // console.log("props.visited", visitedArray)
+        // console.log("props.visited[0]", visitedOne)
+    }
+    useEffect(showVisited, [])
     return(
         <div id="visited-list">
             <h3>Tried & True!</h3>
-            { props.visited.map((v)=>{
-                <SingleVisitedComponent key={v._id} vPlace={v}></SingleVisitedComponent>
+            { props.visited.map((vPlace)=>{
+                <SingleVisitedComponent key={vPlace._id} vPlace={vPlace}></SingleVisitedComponent>
             })}
             
         </div>
