@@ -1,6 +1,7 @@
 import './singleVisited.css'
 
 const SingleVisitedComponent = (props)=>{
+
     return(
         <div id="single-visited">
             <h4>{props.vPlace.name}</h4>

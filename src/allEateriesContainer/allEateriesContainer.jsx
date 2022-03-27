@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
 import VisitedComponent from "./visitedComponent/visitedComponent";
+import EditEateryComponent from "./editEateryComponent/editEateryComponent";
 import ('./allEateries.css')
 
 
@@ -12,6 +13,12 @@ const AllEateriesContainer = () =>{
     const [eateries, setEateries] = useState([])
     const [visited, setVisited] = useState([])
     const [toTry, setToTry] = useState ([])
+
+    const [showing, setShowing] = useState(false)
+    //funciton for toggleShow
+    const toggleShow =()=>{
+        setShowing(!showing)
+    }
 
   
     //create:
@@ -96,6 +103,26 @@ const AllEateriesContainer = () =>{
      }
       
     //edit:
+    const editPlace = async (idToEdit, placeToEdit)=>{
+        try{
+            const editResponse = await fetch(`http://localhost:3001/${idToEdit}`, {
+                method:"PUT",
+                body:JSON.stringify(placeToEdit),
+                headers:{
+                    "Content-Type": "application.json"
+                }
+            })
+            const parsedEdit = await editResponse.json()
+            if(parsedEdit.success){
+                const newArray = eateries.map(place => place._id === idToEdit ? placeToEdit : place)
+                setEateries(newArray)
+            }
+
+        }catch(err){
+            console.log(err)
+        }
+    }
+
 
     //delete: ISSUE: not updating list - state issue? use effect issue?
     const deletePlace = async (idToDelete) =>{
@@ -144,6 +171,8 @@ const AllEateriesContainer = () =>{
                     toTry={toTry}
                     deletePlace={deletePlace}
                 ></ToTryComponent>
+
+                <EditEateryComponent editPlace={editPlace} toggleShow={toggleShow}></EditEateryComponent>
             </section>
 
 
