@@ -88,17 +88,37 @@ const AllEateriesContainer = () =>{
     }
     useEffect(getToTry, [])
 
+    //get random choice:
+     const [random, setRandom] = useState({})
+     const getRandom = ()=>{
+          const newRandom = eateries[Math.floor(Math.random()*eateries.length)]
+          setRandom(newRandom)
+     }
+      
     //edit:
 
-    //delete:
-
-    //get random choice:
-    const [random, setRandom] = useState({})
-    const getRandom = ()=>{
-         const newRandom = eateries[Math.floor(Math.random()*eateries.length)]
-         setRandom(newRandom)
+    //delete: ISSUE: not updating list - state issue? use effect issue?
+    const deletePlace = async (idToDelete) =>{
+        try{
+            const deleteResponse = await fetch (`http://localhost:3001/restaurants/${idToDelete}`,{
+                method: "DELETE"
+            })
+            const parsedDelete = await deleteResponse.json()
+            if(parsedDelete.success ===true){
+                const eateriesArray = eateries.filter((place)=>{
+                    return place._id !==idToDelete
+                })
+                setEateries(eateriesArray)
+                
+            }
+        }catch(err){
+            console.log(err)
+        }
+        
     }
-     
+   
+
+   
 
     return(
         <div id="all-eateries">
@@ -112,8 +132,18 @@ const AllEateriesContainer = () =>{
             <h5>{random.name}</h5>
             </div>
             <section id="two-lists">
-                <VisitedComponent eateries={eateries} visited={visited} visitedName={visited.name}></VisitedComponent>
-                <ToTryComponent eateries={eateries} toTry={toTry}></ToTryComponent>
+                <VisitedComponent 
+                    eateries={eateries} 
+                    visited={visited} 
+                    visitedName={visited.name}
+                    deletePlace={deletePlace}
+                ></VisitedComponent>
+
+                <ToTryComponent 
+                    eateries={eateries} 
+                    toTry={toTry}
+                    deletePlace={deletePlace}
+                ></ToTryComponent>
             </section>
 
 

@@ -27,6 +27,7 @@ const NewEateryComponent = (props) =>{
     //function for submit onSubmit
     const submitNew = (e)=>{
         props.createNew(newPlace)
+        console.log(newPlace)
     }
 
     return(
@@ -50,8 +51,8 @@ const NewEateryComponent = (props) =>{
                     <input onChange ={inputChange} type="text" name="img" value={newPlace.img}accept="image/png, image/jpeg"></input>
                 </div>
                 <div className="form-row">
-                    {/* <label htmlFor="name">Favorite Dish:</label>
-                    <input onChange ={inputChange}type="text" name="faveDish"></input> */}
+                    <label htmlFor="name">Favorite Dish:</label>
+                    <input onChange ={inputChange}type="text" name="faveDish"></input>
                 </div>
 
                 <div className="form-row"> 
@@ -81,7 +82,7 @@ const NewEateryComponent = (props) =>{
                         <label htmlFor="visited">Visited:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">
-                                <input onChange ={inputChange} type="radio" name="visited" value={newPlace.visited}></input>
+                                <input onChange ={inputChange} type="radio" name="visited" value={!newPlace.visited}></input>
                                 <label htmlFor="visited-yes">Yes</label>
                             </div>
                             <div className="radio-option-container">

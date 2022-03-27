@@ -1,3 +1,8 @@
 #to-try{
     border: solid 2px orange;
 }
+
+#to-try img{
+    height: 15vh;
+    width:15vw;
+}
