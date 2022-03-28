@@ -14,6 +14,9 @@ const VisitedComponent = (props) =>{
                         key={vPlace._id} 
                         vPlace={vPlace}
                         deletePlace={props.deletePlace}
+                        showing={props.showing}
+                        setShowing={props.setShowing}
+                        toggleShow={props.toggleShow}
                     ></SingleVisitedComponent>
                ) 
                 

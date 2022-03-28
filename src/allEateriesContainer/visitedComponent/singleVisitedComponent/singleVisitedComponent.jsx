@@ -1,3 +1,4 @@
+import EditEateryComponent from '../../editEateryComponent/editEateryComponent'
 import './singleVisited.css'
 
 const SingleVisitedComponent = (props)=>{
@@ -6,8 +7,15 @@ const SingleVisitedComponent = (props)=>{
         <div id="single-visited">
             <h4>{props.vPlace.name}</h4>
             <img src={props.vPlace.img}></img>
-            <button>Edit</button>
+            
+            <EditEateryComponent  showing={props.showing}
+                        setShowing={props.setShowing}
+                        toggleShow={props.toggleShow}
+                        place={props.vPlace}
+            ></EditEateryComponent>
+
             <button onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</button>
+            
         </div>
     )
 }

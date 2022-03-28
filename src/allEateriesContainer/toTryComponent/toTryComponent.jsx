@@ -15,6 +15,9 @@ const ToTryComponent = (props) =>{
                         key={tPlace._id} 
                         tPlace={tPlace} 
                         deletePlace={props.deletePlace}
+                        showing={props.showing}
+                        setShowing={props.setShowing}
+                        toggleShow={props.toggleShow}
                     ></SingleToTryComponent>
                     
                 )

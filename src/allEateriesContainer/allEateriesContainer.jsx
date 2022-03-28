@@ -5,6 +5,7 @@ import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
 import VisitedComponent from "./visitedComponent/visitedComponent";
 import EditEateryComponent from "./editEateryComponent/editEateryComponent";
+import { propTypes } from "react-bootstrap/esm/Image";
 import ('./allEateries.css')
 
 
@@ -44,56 +45,24 @@ const AllEateriesContainer = () =>{
             const parsedEateries = await eateries.json()
             setEateries(parsedEateries.data)
             // console.log(parsedEateries.data)
+            const vPlaces = parsedEateries.data
+            const visitedPlaces = vPlaces.filter((place)=>{
+                return place.visited === true
+            })
+            setVisited(visitedPlaces)
+
+            const tPlaces = parsedEateries.data
+            const toTryPlaces = tPlaces.filter((place)=>{
+                return place.visited === false
+            })
+            setToTry(toTryPlaces)
         }catch(err){
             console.log(err)
         }
         
     }
     useEffect(getEateries, [])
-
-    //get visited:
-    const getVisited = async ()=>{
-        try{
-            const visited = await fetch ('http://localhost:3001/restaurants')
-            const parsedVisited = await visited.json()
-            const vPlaces = parsedVisited.data
-            // const visitedPlaces = [];
-            // for(let i=0; i<places.length; i++){
-            //     if(places[i].visited === true){
-            //         visitedPlaces.push(places[i])
-            //     }
-            // }
-            // setVisited(visitedPlaces)
-            // console.log(visitedPlaces)
-            const visistedPlaces = vPlaces.filter((place)=>{
-                return place.visited === true
-            })
-            setVisited(visistedPlaces)
-            // console.log(visistedPlaces)
-        }catch(err){
-            console.log(err)
-        }
-        
-    }
-    useEffect(getVisited, [])
-
-    //get to try:
-    const getToTry = async ()=>{
-        try{
-            const toTry = await fetch ('http://localhost:3001/restaurants')
-            const parsedToTry = await toTry.json()
-            const tPlaces = parsedToTry.data
-            const toTryPlaces = tPlaces.filter((place)=>{
-                return place.visited === false
-            })
-            setToTry(toTryPlaces)
-            // console.log(toTryPlaces)
-        }catch(err){
-            console.log(err)
-        }
-        
-    }
-    useEffect(getToTry, [])
+   
 
     //get random choice:
      const [random, setRandom] = useState({})
@@ -103,7 +72,7 @@ const AllEateriesContainer = () =>{
      }
       
     //edit:
-    const editPlace = async (idToEdit, placeToEdit)=>{
+    const editOnePlace = async (idToEdit, placeToEdit)=>{
         try{
             const editResponse = await fetch(`http://localhost:3001/${idToEdit}`, {
                 method:"PUT",
@@ -132,17 +101,22 @@ const AllEateriesContainer = () =>{
             })
             const parsedDelete = await deleteResponse.json()
             if(parsedDelete.success ===true){
+        
                 const eateriesArray = eateries.filter((place)=>{
+                    console.log(place._id, idToDelete)
                     return place._id !==idToDelete
+                    
                 })
+                // console.log(eateriesArray)
                 setEateries(eateriesArray)
-                
+                  
             }
+
         }catch(err){
             console.log(err)
-        }
-        
+        }     
     }
+   
    
 
    
@@ -154,26 +128,50 @@ const AllEateriesContainer = () =>{
             </div>
             
             <h1>My Mood:</h1>
+
             <div className="random">
             <Button onClick={getRandom}>Choose for me!</Button>
             <h5>{random.name}</h5>
             </div>
+
             <section id="two-lists">
                 <VisitedComponent 
                     eateries={eateries} 
                     visited={visited} 
                     visitedName={visited.name}
                     deletePlace={deletePlace}
+                    showing={showing}
+                    setShowing={setShowing}
+                    toggleShow={toggleShow}
                 ></VisitedComponent>
 
                 <ToTryComponent 
                     eateries={eateries} 
                     toTry={toTry}
                     deletePlace={deletePlace}
+                    showing={showing}
+                    setShowing={setShowing}
+                    toggleShow={toggleShow}
                 ></ToTryComponent>
 
-                <EditEateryComponent editPlace={editPlace} toggleShow={toggleShow}></EditEateryComponent>
+                {/* <EditEateryComponent 
+                    editOnePlace={editOnePlace} 
+                    toggleShow={toggleShow}
+                ></EditEateryComponent> */}
             </section>
+            {/* { eateries.map((place)=>{
+               return(
+                   <EditEateryComponent 
+                        key={place._id} 
+                        place={place}
+                        editOnePlace={editOnePlace}
+                        toggleShow={toggleShow}
+                        showing={showing}
+                        setShowing={setShowing}
+                    ></EditEateryComponent>
+               ) 
+                
+            })} */}
 
 
 
@@ -189,7 +187,7 @@ const AllEateriesContainer = () =>{
             <Form.Group controlId="formEmail">
               <Form.Label>Email Address</Form.Label>
               <Form.Control type="email" placeholder="example@email.com"></Form.Control>
-              <Form.Text className="text-muted">We'll never share your email address, trust!</Form.Text>
+              <Form.Text className="text-muted">your email address is your username</Form.Text>
           </Form.Group>
           
             </Col>
