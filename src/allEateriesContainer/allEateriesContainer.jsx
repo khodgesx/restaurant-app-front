@@ -141,36 +141,37 @@ const AllEateriesContainer = () =>{
 
     return(
         <div id="all-eateries">
-            <div id="top-container">
-                <p id="welcome">Keep track of the places you love to eat and ones you can't wait to love!
-                    Click Add New to add a restaurant to your list. Come back when you're ready to 
-                    make a yummy decision. Click Choose for me if you need some help deciding
+            
+            <section id="top-container">
+                <div id='top-top'>
+                <p id="welcome">Keep track of the places you love to eat and those you're dying to try...
                 </p>
-                <Button id="add-new-button"onClick={setShowing}>Add New</Button>
-
-                <Modal show={showing} onHide={toggleShow}>
-                    <div id="create-new">
-                        <NewEateryComponent image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}></NewEateryComponent>
-                        <Button onClick={toggleShow}>Close</Button>
-                    </div>
-                 </Modal>
-
-                <div className="random">
-                <Button id="random-button"onClick={getRandom}>Choose for me!</Button>
-                <h5>{random.name}</h5>
                 </div>
-            <div>
-            <h1 id="mood">What is your Food Mood?</h1>
-            </div>
+                
+                <div id='mid-top'>
+                    <Button id="add-new-button"onClick={setShowing}>Add New</Button>
+                    <Modal show={showing} onHide={toggleShow}>
+                        <div id="create-new">
+                            <NewEateryComponent image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}></NewEateryComponent>
+                            <Button onClick={toggleShow}>Close</Button>
+                        </div>
+                    </Modal>
+
+                    <div className="random">
+                        <Button id="random-button"onClick={getRandom}>Choose for me!</Button>
+                        <h5>{random.name}</h5>
+                    </div>
+                </div>
+               
+                
+                <div id='bottom-top'>
+                    <h1 id="mood">What is your Food Mood?</h1>
+                </div>
             
                 
-            </div>
+            </section>
 
-            
-
-           
-            
-            
+        
 
             <section id="two-lists">
                 

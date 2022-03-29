@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Ubuntu:wght@300&display=swap');
 .App {
-  border: solid 4px green;
   margin:5px;
 }
 #nav-flex{
@@ -20,17 +19,9 @@
   margin: 5px;
   font-size: 60px;
   font-family: 'Cedarville Cursive', cursive;
-  /* font-weight:800;
-  color:transparent;
-  background-image:url('https://media.giphy.com/media/3ohhwhHdgMUUGQ97he/giphy-downsized-large.gif');
-  background-position:center;
-  -webkit-background-clip: text; */
 }
 #sign-up, #login{
-  /* height: 50px;
-  width: 80px; */
   padding: 10px 35px; 
-  /* border-radius: 50%; */
   background-color: rgb(221, 132, 109);
   color:white;
   margin: 5px;

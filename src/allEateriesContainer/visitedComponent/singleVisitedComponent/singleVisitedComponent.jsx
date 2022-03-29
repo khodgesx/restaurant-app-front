@@ -14,8 +14,9 @@ const SingleVisitedComponent = (props)=>{
         <div id="single-visited">
             <h4>{props.vPlace.name}</h4>
             <img alt ="restaurant"src={props.vPlace.img}></img>
+            <h5> Cuisine: {props.vPlace.cuisine}</h5>
 
-            <Button onClick={handleShow}>Edit</Button>
+            <Button className="edit-button" onClick={handleShow}>Edit</Button>
             <Modal show={modalShow} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Restaurant</Modal.Title>

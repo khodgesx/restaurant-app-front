@@ -1,4 +1,5 @@
 import EditEateryComponent from "../../editEateryComponent/editEateryComponent"
+import './singleTry.css'
 import {Modal, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react'
@@ -12,8 +13,9 @@ const SingleToTryComponent = (props) =>{
         <div id="single-to-try">
             <h4>{props.tPlace.name}</h4>
             <img alt ="restaurant"src={props.tPlace.img}></img>
+            <h5> Cuisine: {props.tPlace.cuisine}</h5>
 
-            <Button onClick={handleShow}>Edit</Button>
+            <Button className="edit-button"onClick={handleShow}>Edit</Button>
             <Modal show={modalShow} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Restaurant</Modal.Title>
