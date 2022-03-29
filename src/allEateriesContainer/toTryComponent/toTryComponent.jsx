@@ -18,6 +18,7 @@ const ToTryComponent = (props) =>{
                         showing={props.showing}
                         setShowing={props.setShowing}
                         toggleShow={props.toggleShow}
+                        editOnePlace={props.editOnePlace}
                     ></SingleToTryComponent>
                     
                 )

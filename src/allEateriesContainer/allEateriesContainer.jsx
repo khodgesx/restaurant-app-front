@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
 import VisitedComponent from "./visitedComponent/visitedComponent";
-import EditEateryComponent from "./editEateryComponent/editEateryComponent";
-import { propTypes } from "react-bootstrap/esm/Image";
 import ('./allEateries.css')
 
 
@@ -74,17 +72,20 @@ const AllEateriesContainer = () =>{
     //edit:
     const editOnePlace = async (idToEdit, placeToEdit)=>{
         try{
-            const editResponse = await fetch(`http://localhost:3001/${idToEdit}`, {
+            const editResponse = await fetch(`http://localhost:3001/restaurants/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(placeToEdit),
                 headers:{
-                    "Content-Type": "application.json"
+                    "Content-Type": "application/json"
                 }
             })
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
-                const newArray = eateries.map(place => place._id === idToEdit ? placeToEdit : place)
-                setEateries(newArray)
+                console.log(placeToEdit)
+                const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
+                setVisited(newArray)
+                const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
+                setToTry(newArrayTwo)
             }
 
         }catch(err){
@@ -101,15 +102,11 @@ const AllEateriesContainer = () =>{
             })
             const parsedDelete = await deleteResponse.json()
             if(parsedDelete.success ===true){
-        
-                const eateriesArray = eateries.filter((place)=>{
-                    console.log(place._id, idToDelete)
-                    return place._id !==idToDelete
-                    
-                })
-                // console.log(eateriesArray)
-                setEateries(eateriesArray)
-                  
+                const newArray = visited.filter((place)=> place._id !==idToDelete)
+                setVisited(newArray)
+
+                const newArrayTwo = toTry.filter((place)=>place._id !==idToDelete)
+                setToTry(newArrayTwo)
             }
 
         }catch(err){
@@ -143,6 +140,7 @@ const AllEateriesContainer = () =>{
                     showing={showing}
                     setShowing={setShowing}
                     toggleShow={toggleShow}
+                    editOnePlace={editOnePlace}
                 ></VisitedComponent>
 
                 <ToTryComponent 
@@ -152,6 +150,7 @@ const AllEateriesContainer = () =>{
                     showing={showing}
                     setShowing={setShowing}
                     toggleShow={toggleShow}
+                    editOnePlace={editOnePlace}
                 ></ToTryComponent>
 
                 {/* <EditEateryComponent 

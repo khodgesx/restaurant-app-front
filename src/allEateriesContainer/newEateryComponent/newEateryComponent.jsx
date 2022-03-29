@@ -1,6 +1,29 @@
 import { useState } from "react"
 
 const NewEateryComponent = (props) =>{
+    //state of image for form input
+    const [image, setImage] = useState('')
+    //state of the image url from cloudinary
+    const [url, setUrl] = useState('')
+    //funciton to be called when click -- Add Restaurant?
+    const uploadImage = ()=>{
+        const data = new FormData()
+        data.append('file', image)
+        data.append('upload_preset', 'restaurants')
+        data.append('cloud_name', 'dmc4kghoi')
+        //post request to cloudinary 
+        fetch('https://api.coudinary.com/v1_1/dmc4kghoi/image/upload', {
+            method: "POST",
+            body: data
+        })
+        //what is the data?
+        console.log(data)
+        .then(resp => resp.json())
+        .then(data =>{
+            setUrl(data.url)
+        })
+        .catch(err=>console.log(err))
+    }
     //state of new item before user inputs changes
     const [newPlace, setNewplace] = useState({
         name:'',
@@ -26,8 +49,10 @@ const NewEateryComponent = (props) =>{
     }
     //function for submit onSubmit
     const submitNew = (e)=>{
+        uploadImage()
         props.createNew(newPlace)
         console.log(newPlace)
+        
     }
 
     return(
@@ -46,10 +71,15 @@ const NewEateryComponent = (props) =>{
                     <input onChange ={inputChange}type="text" name="cuisine" value={newPlace.cuisine}></input>
                 </div>
                 
-                <div className="form-row">
+                {/* <div className="form-row">
                     <label htmlFor="name">Photo:</label>
                     <input onChange ={inputChange} type="text" name="img" value={newPlace.img}accept="image/png, image/jpeg"></input>
-                </div>
+                </div> */}
+                 <div className="form-row">
+                    <label htmlFor="name">Photo:</label>
+                    <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" value={url} placeholder='upload image'></input>
+ 
+                </div>   
                 <div className="form-row">
                     <label htmlFor="name">Favorite Dish:</label>
                     <input onChange ={inputChange}type="text" name="faveDish"></input>

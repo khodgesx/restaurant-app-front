@@ -10,6 +10,7 @@ const SingleToTryComponent = (props) =>{
                     setShowing={props.setShowing}
                     toggleShow={props.toggleShow}
                     place={props.tPlace}
+                    editOnePlace={props.editOnePlace}
             ></EditEateryComponent>
             <button onClick={()=>{props.deletePlace(props.tPlace._id)}}>Delete</button>
            

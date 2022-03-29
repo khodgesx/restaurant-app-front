@@ -12,6 +12,7 @@ const SingleVisitedComponent = (props)=>{
                         setShowing={props.setShowing}
                         toggleShow={props.toggleShow}
                         place={props.vPlace}
+                        editOnePlace={props.editOnePlace}
             ></EditEateryComponent>
 
             <button onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</button>

@@ -2,8 +2,7 @@ import { useState } from "react"
 import './edit.css'
 
 const EditEateryComponent = (props)=>{
-    // const [showing, setShowing] = useState(false)
-
+ 
     //set state of place to prior values, unless changed
     const [ editPlace, setEditPlace ] = useState({
         name: props.place.name,
@@ -23,9 +22,10 @@ const EditEateryComponent = (props)=>{
     //submit edit invokes editPlaceFunction - takes two parameters
     //takes id and editPlace state
     const submitEdit =(e)=>{
-        e.prevent.default();
+        e.preventDefault();
         props.editOnePlace(props.place._id, editPlace)
         props.setShowing(false)
+        
     }
     
     return(
