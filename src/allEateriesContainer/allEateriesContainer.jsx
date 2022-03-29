@@ -81,7 +81,7 @@ const AllEateriesContainer = () =>{
             })
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
-                console.log(placeToEdit)
+                // console.log(placeToEdit)
                 const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
                 setVisited(newArray)
                 const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)

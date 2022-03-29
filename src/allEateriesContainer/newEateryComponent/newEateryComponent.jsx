@@ -48,8 +48,8 @@ const NewEateryComponent = (props) =>{
         })
     }
     //function for submit onSubmit
-    const submitNew = (e)=>{
-        uploadImage()
+    const submitNew = async (e)=>{
+       await uploadImage()
         props.createNew(newPlace)
         console.log(newPlace)
         

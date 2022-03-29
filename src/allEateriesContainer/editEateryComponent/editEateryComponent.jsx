@@ -1,5 +1,7 @@
 import { useState } from "react"
 import './edit.css'
+import {Modal, Button} from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const EditEateryComponent = (props)=>{
  
@@ -30,8 +32,7 @@ const EditEateryComponent = (props)=>{
     
     return(
         <>
-        {
-           props.showing ?
+     
             <div id="edit-place-form">
             <form onSubmit={submitEdit} encType="multipart/form-data">
                 <div className="form-row">
@@ -90,19 +91,14 @@ const EditEateryComponent = (props)=>{
                         </div>
                 </div>
 
-                <button type="submit">Edit Restaurant</button>
-                <button onClick={props.toggleShow}>Cancel</button>
+                <Button type="submit">Save Changes</Button>
+                
 
             </form>
 
 
         </div>
-
-        :
-
-        <button onClick ={props.toggleShow}>Edit</button>
-            
-        }
+    
         </>
     )
 }
