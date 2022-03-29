@@ -29,11 +29,10 @@ const SingleToTryComponent = (props) =>{
                 </Modal.Body>
                <Modal.Footer>
                    <Button onClick={handleClose}>Close</Button>
-                   {/* <Button onClick={handleClose}>Save</Button> */}
                </Modal.Footer>
             </Modal>
 
-            <button onClick={()=>{props.deletePlace(props.tPlace._id)}}>Delete</button>
+            <Button variant="warning" onClick={()=>{props.deletePlace(props.tPlace._id)}}>Delete</Button>
            
         </div>
     )

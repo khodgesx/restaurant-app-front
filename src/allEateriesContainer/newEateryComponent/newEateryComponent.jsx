@@ -1,4 +1,5 @@
 import { useState } from "react"
+import './new.css'
 
 const NewEateryComponent = (props) =>{
     //state of image for form input
@@ -57,8 +58,7 @@ const NewEateryComponent = (props) =>{
 
     return(
         <>
-        {
-            showing ?
+        
             <div id="new-place-form">
             <form onSubmit={submitNew} encType="multipart/form-data">
                 <div className="form-row">
@@ -130,11 +130,7 @@ const NewEateryComponent = (props) =>{
 
         </div>
 
-        :
-
-        <button onClick ={toggleShow}>Add Restaurant</button>
-            
-        }
+       
         </>
         
     )

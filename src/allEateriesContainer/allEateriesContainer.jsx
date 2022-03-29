@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Container, Row, Col, Button, Alert, Breadcrumb, Form, Card} from 'react-bootstrap'
+import {Container, Row, Col, Button, Alert, Breadcrumb, Form, Card, Modal} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
@@ -15,9 +15,8 @@ const AllEateriesContainer = () =>{
 
     const [showing, setShowing] = useState(false)
     //funciton for toggleShow
-    const toggleShow =()=>{
-        setShowing(!showing)
-    }
+    const toggleShow =()=>setShowing(!showing)
+    
 
   
     //create:
@@ -120,9 +119,14 @@ const AllEateriesContainer = () =>{
 
     return(
         <div id="all-eateries">
+
+            <Button onClick={setShowing}>Add Restaurant</Button>
+            <Modal show={showing} onHide={toggleShow}>
             <div id="create-new">
                 <NewEateryComponent createNew={createNew}></NewEateryComponent>
             </div>
+            </Modal>
+            
             
             <h1>My Mood:</h1>
 
