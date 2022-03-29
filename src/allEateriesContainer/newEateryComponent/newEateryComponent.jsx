@@ -3,43 +3,39 @@ import './new.css'
 
 const NewEateryComponent = (props) =>{
     //state of image for form input
-    const [image, setImage] = useState('')
-    //state of the image url from cloudinary
-    const [url, setUrl] = useState('')
+    // const [image, props.setImage] = useState('')
+    // //state of the image url from cloudinary
+    // const [url, setUrl] = useState('')
     //funciton to be called when click -- Add Restaurant?
-    const uploadImage = ()=>{
-        const data = new FormData()
-        data.append('file', image)
-        data.append('upload_preset', 'restaurants')
-        data.append('cloud_name', 'dmc4kghoi')
-        //post request to cloudinary 
-        fetch('https://api.coudinary.com/v1_1/dmc4kghoi/image/upload', {
-            method: "POST",
-            body: data
-        })
-        //what is the data?
-        console.log(data)
-        .then(resp => resp.json())
-        .then(data =>{
-            setUrl(data.url)
-        })
-        .catch(err=>console.log(err))
-    }
+    // const uploadImage = ()=>{
+    //     const data = new FormData()
+    //     console.log("image prop", props.image)
+    //     data.append('file', props.image)
+    //     data.append('upload_preset', 'restaurants')
+
+    //     console.log("this is img data", data)
+    //     //post request to cloudinary 
+    //     fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
+    //         method: "POST",
+    //         body: data
+    //     })
+    //     //what is the data?
+    //     // console.log(data)
+    //     .then(resp => resp.json())
+    //     .then(data => props.setUrl(data.url))
+    //     .catch(err=>console.log(err))
+    // }
     //state of new item before user inputs changes
     const [newPlace, setNewplace] = useState({
         name:'',
         visited: false,
         cuisine: '',
-        img: 'https://i.imgur.com/IsRaUa5.png',
+        img: '',
         faveDish:'',
         notes:'',
         priceLevel: "$"
     })
-    const [showing, setShowing] = useState(false)
-    //funciton for toggleShow
-    const toggleShow =()=>{
-        setShowing(!showing)
-    }
+  
     //funciton for onChange
     const inputChange = (e)=>{
         setNewplace({
@@ -50,7 +46,8 @@ const NewEateryComponent = (props) =>{
     }
     //function for submit onSubmit
     const submitNew = async (e)=>{
-       await uploadImage()
+        e.preventDefault()
+    //    await uploadImage()
         props.createNew(newPlace)
         console.log(newPlace)
         
@@ -60,7 +57,7 @@ const NewEateryComponent = (props) =>{
         <>
         
             <div id="new-place-form">
-            <form onSubmit={submitNew} encType="multipart/form-data">
+            <form onSubmit={submitNew} encType="multipart/form">
                 <div className="form-row">
                     <label htmlFor="name">Restaurant Name:</label>
                     <input onChange ={inputChange} type="text" name="name" value={newPlace.name}></input>
@@ -77,7 +74,7 @@ const NewEateryComponent = (props) =>{
                 </div> */}
                  <div className="form-row">
                     <label htmlFor="name">Photo:</label>
-                    <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" value={url} placeholder='upload image'></input>
+                    <input onChange ={(e)=>props.setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
  
                 </div>   
                 <div className="form-row">
@@ -123,7 +120,7 @@ const NewEateryComponent = (props) =>{
                 </div>
 
                 <button type="submit">Add Restaurant</button>
-                <button onClick={toggleShow}>Cancel</button>
+                {/* <button onClick={toggleShow}>Cancel</button> */}
 
             </form>
 

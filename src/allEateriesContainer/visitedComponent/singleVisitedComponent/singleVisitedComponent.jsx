@@ -15,7 +15,7 @@ const SingleVisitedComponent = (props)=>{
             <h4>{props.vPlace.name}</h4>
             <img alt ="restaurant"src={props.vPlace.img}></img>
 
-            <Button onClick={handleShow}>Edit Modal</Button>
+            <Button onClick={handleShow}>Edit</Button>
             <Modal show={modalShow} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Restaurant</Modal.Title>
@@ -29,13 +29,14 @@ const SingleVisitedComponent = (props)=>{
                     place={props.vPlace}
                     editOnePlace={props.editOnePlace}
                 ></EditEateryComponent>
+                <Button variant="warning" onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</Button>
                 </Modal.Body>
                <Modal.Footer>
                    <Button onClick={handleClose}>Close</Button>
                </Modal.Footer>
             </Modal>
 
-            <Button variant="warning" onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</Button>
+            
             
         </div>
     )

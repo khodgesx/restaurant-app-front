@@ -36,7 +36,7 @@ const EditEateryComponent = (props)=>{
             <div id="edit-place-form">
             <form onSubmit={submitEdit} encType="multipart/form-data">
                 <div className="form-row">
-                    <label htmlFor="name">Restaurant Name:</label>
+                    <label htmlFor="name">Restaurant Name: </label>
                     <input onChange ={inputChange} type="text" name="name" value={editPlace.name}></input>
                 </div>
 

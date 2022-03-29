@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Ubuntu:wght@300&display=swap');
+
 #visited-list{
-    border: solid 2px orange;
     width: auto;
     height: auto;
 }
+
+/* #v-title, #t-title{
+    padding:5px;
+    font-family: 'Cedarville Cursive', cursive;
+} */

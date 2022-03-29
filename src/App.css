@@ -1,17 +1,39 @@
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Ubuntu:wght@300&display=swap');
 .App {
   border: solid 4px green;
   margin:5px;
 }
+#nav-flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+}
+#not-logged-in-nav{
+  /* position:fixed; */
+  margin:10px 5px;
+  /* background-color: rgb(170, 238, 235); */
+  height: 7vh;
+}
 #title{
   text-align: center;
-  border: solid 3px rgb(52, 52, 223);
   margin: 5px;
+  font-size: 60px;
+  font-family: 'Cedarville Cursive', cursive;
+  /* font-weight:800;
+  color:transparent;
+  background-image:url('https://media.giphy.com/media/3ohhwhHdgMUUGQ97he/giphy-downsized-large.gif');
+  background-position:center;
+  -webkit-background-clip: text; */
 }
 #sign-up, #login{
-  height: 75px;
-  width: 75px;
-  border-radius: 50%;
-  background-color: rgb(212, 94, 65);
+  /* height: 50px;
+  width: 80px; */
+  padding: 10px 35px; 
+  /* border-radius: 50%; */
+  background-color: rgb(221, 132, 109);
   color:white;
+  margin: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 900;
 }

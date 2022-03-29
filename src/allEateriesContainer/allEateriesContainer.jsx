@@ -17,22 +17,44 @@ const AllEateriesContainer = () =>{
     //funciton for toggleShow
     const toggleShow =()=>setShowing(!showing)
     
-
+    const [image, setImage] = useState('')
+    //state of the image url from cloudinary
+    const [url, setUrl] = useState('')
   
     //create:
     const createNew = async (newPlace) =>{
-        const createResponse = await fetch ('http://localhost:3001/restaurants',{
-            method: "POST",
-            body: JSON.stringify(newPlace),
-            headers: {
-                "Content-Type": "application/json"
+        try {
+            const data = new FormData()
+            console.log("image prop", image)
+            data.append('file', image)
+            data.append('upload_preset', 'restaurants')
+    
+            const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
+                method: "POST",
+                body: data
+            })
+    
+            const parsedImg = await imageUpload.json()
+            newPlace.img = await parsedImg.url
+    
+            await console.log("new place\n", newPlace)
+            // newPlace.img = await url
+            const createResponse = await fetch ('http://localhost:3001/restaurants',{
+                method: "POST",
+                body: JSON.stringify(newPlace),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            const parsedResponse = await createResponse.json()
+            console.log(parsedResponse)
+            if(parsedResponse.success){
+                setEateries([parsedResponse.data, ...eateries])
+            }else{
+                console.log(parsedResponse.data)
             }
-        })
-        const parsedResponse = await createResponse.json()
-        if(parsedResponse.success){
-            setEateries([parsedResponse.data, ...eateries])
-        }else{
-            console.log(parsedResponse.data)
+        } catch (err) {
+            console.log(err)
         }
     }
     //get all:
@@ -119,23 +141,39 @@ const AllEateriesContainer = () =>{
 
     return(
         <div id="all-eateries">
+            <div id="top-container">
+                <p id="welcome">Keep track of the places you love to eat and ones you can't wait to love!
+                    Click Add New to add a restaurant to your list. Come back when you're ready to 
+                    make a yummy decision. Click Choose for me if you need some help deciding
+                </p>
+                <Button id="add-new-button"onClick={setShowing}>Add New</Button>
 
-            <Button onClick={setShowing}>Add Restaurant</Button>
-            <Modal show={showing} onHide={toggleShow}>
-            <div id="create-new">
-                <NewEateryComponent createNew={createNew}></NewEateryComponent>
+                <Modal show={showing} onHide={toggleShow}>
+                    <div id="create-new">
+                        <NewEateryComponent image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}></NewEateryComponent>
+                        <Button onClick={toggleShow}>Close</Button>
+                    </div>
+                 </Modal>
+
+                <div className="random">
+                <Button id="random-button"onClick={getRandom}>Choose for me!</Button>
+                <h5>{random.name}</h5>
+                </div>
+            <div>
+            <h1 id="mood">What is your Food Mood?</h1>
             </div>
-            </Modal>
+            
+                
+            </div>
+
+            
+
+           
             
             
-            <h1>My Mood:</h1>
-
-            <div className="random">
-            <Button onClick={getRandom}>Choose for me!</Button>
-            <h5>{random.name}</h5>
-            </div>
 
             <section id="two-lists">
+                
                 <VisitedComponent 
                     eateries={eateries} 
                     visited={visited} 

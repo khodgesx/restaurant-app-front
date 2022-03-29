@@ -1,9 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Ubuntu:wght@300&display=swap');
 #all-eateries{
     margin:20px;
     border:solid 3px pink;
     padding:25px;
+    display:grid;
+    grid-template-rows: 1fr 2fr 2fr;
 }
-
+#top-container{
+    height:250px;
+    background-image: url('https://i.imgur.com/bpgYXKD.jpg?1');
+    background-size:cover;
+    /* background-blend-mode:overlay; */
+    color:rgb(208, 202, 211);
+    font-weight: 800;
+}
+#add-new-button{
+    background-color: rgb(221, 132, 109);
+    border-color: rgb(228, 208, 99);
+    color:white;
+    font-weight: 800;
+}
+#mood{
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    color:transparent;
+    background-image:url('https://media.giphy.com/media/APel4rVH09pmxIZcZN/giphy-downsized-large.gif');
+    background-position:center;
+    -webkit-background-clip: text;
+   
+}
+#random-button{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: rgb(228, 208, 99);
+    border-color: rgb(228, 208, 99);
+    color:black;
+    font-weight: 800;
+}
 img{
     height:200px;
 }
@@ -19,12 +55,12 @@ img{
     grid-template-columns: 1fr 1fr;
     grid-gap:15px;
 }
-.random button{
-    display: block;
-    margin-left:auto;
-    margin-right:auto;
-    background-color: rgb(30, 105, 170);
+#v-title, #t-title{
+    padding:5px;
+    font-family: 'Cedarville Cursive', cursive;
+    text-decoration: underline;
 }
+
 .random h5{
     text-align: center;
     padding: 10px;

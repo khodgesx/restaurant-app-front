@@ -7,7 +7,7 @@ const VisitedComponent = (props) =>{
 
     return(
         <div id="visited-list">
-            <h3>Tried & True!</h3>
+            <h3 id="v-title">Tried & True:</h3>
             { props.visited.map((vPlace)=>{
                return(
                    <SingleVisitedComponent 

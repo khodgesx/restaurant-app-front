@@ -8,7 +8,7 @@ const ToTryComponent = (props) =>{
     
     return(
         <div id="to-try">
-            <h3>Looking for something new!</h3>
+            <h3 id="t-title">Something New:</h3>
             { props.toTry.map((tPlace)=>{
                 return(
                    <SingleToTryComponent 
