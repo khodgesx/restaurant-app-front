@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
 import VisitedComponent from "./visitedComponent/visitedComponent";
+import apiUrl from "../apiConfig";
 import ('./allEateries.css')
 
 
@@ -39,7 +40,7 @@ const AllEateriesContainer = () =>{
     
             await console.log("new place\n", newPlace)
             // newPlace.img = await url
-            const createResponse = await fetch ('https://restaurant-app-back-end.herokuapp.com/restaurants',{
+            const createResponse = await fetch (`${apiUrl}/restaurants`,{
                 method: "POST",
                 body: JSON.stringify(newPlace),
                 headers: {
@@ -75,7 +76,7 @@ const AllEateriesContainer = () =>{
     //get all:
     const getEateries = async ()=>{
         try{
-            const eateries = await fetch ('https://restaurant-app-back-end.herokuapp.com/restaurants')
+            const eateries = await fetch (`${apiUrl}/restaurants`)
             const parsedEateries = await eateries.json()
             setEateries(parsedEateries.data)
             // console.log(parsedEateries.data)
@@ -108,7 +109,7 @@ const AllEateriesContainer = () =>{
     //edit:
     const editOnePlace = async (idToEdit, placeToEdit)=>{
         try{
-            const editResponse = await fetch(`https://restaurant-app-back-end.herokuapp.com/restaurants/${idToEdit}`, {
+            const editResponse = await fetch(`${apiUrl}/restaurants/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(placeToEdit),
                 headers:{
@@ -137,15 +138,15 @@ const AllEateriesContainer = () =>{
             data.append('upload_preset', 'restaurants')
 
             const imageUpdate = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
-                method: "PUT",
+                method: "POST",
                 body: data
             })
             const parsedImg = await imageUpdate.json()
-            placeToEdit = await parsedImg.url
+            placeToEdit.img = await parsedImg.url
 
             await console.log('updated img', placeToEdit)
 
-            const editResponse = await fetch(`https://restaurant-app-back-end.herokuapp.com/restaurants/update-photo/${idToEdit}`, {
+            const editResponse = await fetch(`${apiUrl}/restaurants/update-photo/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(placeToEdit),
                 headers:{
@@ -169,7 +170,7 @@ const AllEateriesContainer = () =>{
     //delete: ISSUE: not updating list - state issue? use effect issue?
     const deletePlace = async (idToDelete) =>{
         try{
-            const deleteResponse = await fetch (`https://restaurant-app-back-end.herokuapp.com/restaurants/${idToDelete}`,{
+            const deleteResponse = await fetch (`${apiUrl}/restaurants/${idToDelete}`,{
                 method: "DELETE"
             })
             const parsedDelete = await deleteResponse.json()
