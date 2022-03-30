@@ -94,7 +94,7 @@ const NewEateryComponent = (props) =>{
                 </div>
 
                 <button onClick ={props.toggleShow}type="submit">Add Restaurant</button>
-                {/* <button onClick={toggleShow}>Cancel</button> */}
+             
 
             </form>
 

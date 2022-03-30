@@ -35,6 +35,27 @@ const SingleToTryComponent = (props) =>{
                </Modal.Footer>
             </Modal>
 
+            {/* <Button className="edit-button" onClick={show}>Update Photo</Button>
+            <Modal show={photoShow} onHide={close}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Update Photo</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <EditPhotoComponent
+                    key={props.vPlace._id} 
+                    showing={props.showing}
+                    setShowing={props.setShowing}
+                    toggleShow={props.toggleShow}
+                    place={props.vPlace}
+                    editPhotoF={props.editPhotoF}
+                    image={props.image} setImage={props.setImage} url={props.url} setUrl={props.setUrl}
+                ></EditPhotoComponent>
+                </Modal.Body>
+               <Modal.Footer>
+                   <Button onClick={close}>Close</Button>
+               </Modal.Footer>
+            </Modal> */}
+
             
            
         </div>
