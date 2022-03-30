@@ -18,13 +18,15 @@
   text-align: center;
   margin: 5px;
   font-size: 60px;
-  font-family: 'Cedarville Cursive', cursive;
+  /* font-family: 'Cedarville Cursive', cursive; */
+  font-family: 'Pacifico', cursive;
 }
 #sign-up, #login{
   padding: 10px 35px; 
   background-color: rgb(221, 132, 109);
+  border:none;
   color:white;
   margin: 5px;
-  font-family: 'Ubuntu', sans-serif;
+  /* font-family: 'Ubuntu', sans-serif; */
   font-weight: 900;
 }

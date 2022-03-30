@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Pacifico&family=Ubuntu:wght@300&display=swap');
 #all-eateries{
-    margin:20px;
     /* border:solid 3px pink; */
     padding:25px;
     display:grid;
-    grid-template-rows: 1fr 2fr 3fr;
+    grid-template-rows: 1fr 4fr 3fr;
+    padding-top:0;
 }
 #top-container{
     display:grid;
-    grid-template-rows: 3fr 1fr 1fr;
-    background-image: url('https://i.imgur.com/hEVDcSm.jpg');
-    background-size:contain;
     height: 150px;
    
 }
@@ -19,14 +16,23 @@
     /* background-blend-mode:overlay; */
     color:rgb(102, 207, 199);
     font-size: 3vh;
-    font-weight: 800;
+    /* background-image: url('https://i.imgur.com/hEVDcSm.jpg');
+    background-size:cover; */
 }
-#add-new-button{
+#mid-top{
+    display: flex;
+    justify-content: space-evenly;
+    height:100px;
+}
+#add-new-button, #random-button{
     background-color: rgb(221, 132, 109);
-    border-color: rgb(228, 208, 99);
+    border:none;
+    border-radius: none;
     color:white;
     font-weight: 800;
     margin:5px;
+    height:50px;
+    width:150px;
 }
 #mood{
     font-family: 'Ubuntu', sans-serif;
@@ -34,23 +40,12 @@
     font-size: 50px;
     font-weight: 900;
     color:transparent;
-    background-image:url('https://media.giphy.com/media/APel4rVH09pmxIZcZN/giphy-downsized-large.gif');
+    background-image:url('https://media.giphy.com/media/3NeSk2IVEd2FYUQEcM/giphy.gif');
     background-position:center;
     -webkit-background-clip: text;
    
 }
-#random-button{
-    display: block;
-    /* margin-left:auto;
-    margin-right:auto; */
-    background-color: rgb(228, 208, 99);
-    border-color: rgb(228, 208, 99);
-    color:black;
-    font-weight: 800;
-}
-img{
-    height:200px;
-}
+
 #all-eateries h1, h3{
     text-align: center;
 }
@@ -59,11 +54,12 @@ img{
     margin-right: auto;
 }
 #two-lists{
-    margin-top:50px;
+    padding-top:0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:15px;
     text-align: center;
+    /* overflow: scroll; */
 }
 #v-title, #t-title{
     padding:5px;
