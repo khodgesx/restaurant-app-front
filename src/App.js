@@ -8,14 +8,17 @@ import LoginComponent from './loginComponent/loginComponent';
 
 
 
+
 function App() {
   const [regShow, setRegShow] = useState(false)
     const toggleReg =()=>setRegShow(!regShow) 
     const [logShow, setLogShow] = useState(false)
     const toggleLog =()=>setLogShow(!logShow) 
+ 
 
   return (
     <div className="App">
+ 
 
       <div id='nav-flex'>
       <div id="welcome">
