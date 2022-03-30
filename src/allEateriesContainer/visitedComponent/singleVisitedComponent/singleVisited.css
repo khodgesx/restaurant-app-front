@@ -2,17 +2,27 @@
     border: solid 1px pink;
     padding:5px;
     border-radius: 5%;
-    width: 60%;
+    width: 100%;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
 }
-
 #single-visited img{
-    height: 15vh;
-    width:15vw;
-    border: solid 1px black;
+    width:30vw;
+    border: solid 1px black; 
 }
 #single-visited h4{
     color:rgb(54, 153, 153);
+}
+@media only screen and (min-width: 768px) {   
+    #single-visited{
+        width: 60%;
+        
+    }
+
+    #single-visited img{
+        height: 15vh;
+        width:15vw;
+    }
+    
 }

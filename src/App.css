@@ -7,18 +7,12 @@
   justify-content: space-between;
   align-items: center;
   margin: 15px;
-}
-#not-logged-in-nav{
-  /* position:fixed; */
-  margin:10px 5px;
-  /* background-color: rgb(170, 238, 235); */
-  height: 7vh;
+  
 }
 #title{
-  text-align: center;
+  text-align: left;
   margin: 5px;
-  font-size: 60px;
-  /* font-family: 'Cedarville Cursive', cursive; */
+  font-size: 30px;
   font-family: 'Pacifico', cursive;
 }
 #sign-up, #login{
@@ -28,5 +22,23 @@
   color:white;
   margin: 5px;
   /* font-family: 'Ubuntu', sans-serif; */
-  font-weight: 900;
+  font-weight: 600;
+}
+
+
+@media only screen and (min-width: 768px) {   
+  #not-logged-in-nav{
+    /* position:fixed; */
+    margin:10px 5px;
+    /* background-color: rgb(170, 238, 235); */
+    height: 7vh;
+  }
+  #title{
+    text-align: center;
+    margin: 5px;
+    font-size: 60px;
+  }
+  #sign-up, #login{
+    padding: 10px 35px; 
+  }
 }
