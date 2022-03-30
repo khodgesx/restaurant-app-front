@@ -39,7 +39,7 @@ const AllEateriesContainer = () =>{
     
             await console.log("new place\n", newPlace)
             // newPlace.img = await url
-            const createResponse = await fetch ('https://git.heroku.com/restaurant-app-back-end.git/restaurants',{
+            const createResponse = await fetch ('https://restaurant-app-front.herokuapp.com/restaurants',{
                 method: "POST",
                 body: JSON.stringify(newPlace),
                 headers: {
@@ -61,7 +61,7 @@ const AllEateriesContainer = () =>{
     const getEateries = async ()=>{
         try{
             // const eateries = await fetch ('http://localhost:3001/restaurants')
-            const eateries = await fetch ('https://git.heroku.com/restaurant-app-back-end.git/restaurants')
+            const eateries = await fetch ('https://restaurant-app-front.herokuapp.com/restaurants')
             const parsedEateries = await eateries.json()
             setEateries(parsedEateries.data)
             // console.log(parsedEateries.data)
@@ -94,7 +94,7 @@ const AllEateriesContainer = () =>{
     //edit:
     const editOnePlace = async (idToEdit, placeToEdit)=>{
         try{
-            const editResponse = await fetch(`https://git.heroku.com/restaurant-app-back-end.git/restaurants/${idToEdit}`, {
+            const editResponse = await fetch(`https://restaurant-app-front.herokuapp.com/restaurants/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(placeToEdit),
                 headers:{
@@ -119,7 +119,7 @@ const AllEateriesContainer = () =>{
     //delete: ISSUE: not updating list - state issue? use effect issue?
     const deletePlace = async (idToDelete) =>{
         try{
-            const deleteResponse = await fetch (`https://git.heroku.com/restaurant-app-back-end.git/restaurants/${idToDelete}`,{
+            const deleteResponse = await fetch (`https://restaurant-app-front.herokuapp.com/restaurants/${idToDelete}`,{
                 method: "DELETE"
             })
             const parsedDelete = await deleteResponse.json()
