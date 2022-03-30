@@ -114,6 +114,42 @@ const AllEateriesContainer = () =>{
         }
     }
 
+    //edit photo:
+    const editPhotoF = async (idToEdit, placeToEdit)=>{
+        try{
+            const data = new FormData()
+            data.append('file', image)
+            data.append('upload_preset', 'restaurants')
+
+            const imageUpdate = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
+                method: "POST",
+                body: data
+            })
+            const parsedImg = await imageUpdate.json()
+            placeToEdit = await parsedImg.url
+
+            await console.log('updated img', placeToEdit)
+
+            const editResponse = await fetch(`https://restaurant-app-back-end.herokuapp.com/restaurants/update-photo/${idToEdit}`, {
+                method:"PUT",
+                body:JSON.stringify(placeToEdit),
+                headers:{
+                    "Content-Type": "application/json"
+                }
+            })
+            const parsedEdit = await editResponse.json()
+            if(parsedEdit.success){
+                // console.log(placeToEdit)
+                const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
+                setVisited(newArray)
+                const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
+                setToTry(newArrayTwo)
+            }
+
+        }catch(err){
+            console.log(err)
+        }
+    }
 
     //delete: ISSUE: not updating list - state issue? use effect issue?
     const deletePlace = async (idToDelete) =>{
@@ -184,6 +220,8 @@ const AllEateriesContainer = () =>{
                     setShowing={setShowing}
                     toggleShow={toggleShow}
                     editOnePlace={editOnePlace}
+                    editPhotoF={editPhotoF}
+                    image={image} setImage={setImage} url={url} setUrl={setUrl}
                 ></VisitedComponent>
 
                 <ToTryComponent 
@@ -194,6 +232,8 @@ const AllEateriesContainer = () =>{
                     setShowing={setShowing}
                     toggleShow={toggleShow}
                     editOnePlace={editOnePlace}
+                    editPhotoF={editPhotoF}
+                    image={image} setImage={setImage} url={url} setUrl={setUrl}
                 ></ToTryComponent>
 
                 {/* <EditEateryComponent 

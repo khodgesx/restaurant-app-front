@@ -19,6 +19,8 @@ const ToTryComponent = (props) =>{
                         setShowing={props.setShowing}
                         toggleShow={props.toggleShow}
                         editOnePlace={props.editOnePlace}
+                        editPhotoF={props.editPhotoF}
+                        image={props.image} setImage={props.setImage} url={props.url} setUrl={props.setUrl}
                     ></SingleToTryComponent>
                     
                 )

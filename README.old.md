@@ -1,5 +1,6 @@
 # restaurant-app-front
 restaurant - react
 
+
 heroku link:
-https://git.heroku.com/restaurant-app-front.git
+https://restaurant-app-front.herokuapp.com/
