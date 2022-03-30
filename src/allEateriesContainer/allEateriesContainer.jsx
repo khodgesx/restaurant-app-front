@@ -136,7 +136,8 @@ const AllEateriesContainer = () =>{
             const data = new FormData()
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
-
+            
+            //post to cloudinary
             const imageUpdate = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
                 method: "POST",
                 body: data
