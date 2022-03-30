@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Pacifico&family=Ubuntu:wght@300&display=swap');
 #all-eateries{
     margin:20px;
-    border:solid 3px pink;
+    /* border:solid 3px pink; */
     padding:25px;
     display:grid;
     grid-template-rows: 1fr 2fr 3fr;
@@ -11,13 +11,14 @@
     grid-template-rows: 3fr 1fr 1fr;
     background-image: url('https://i.imgur.com/hEVDcSm.jpg');
     background-size:contain;
+    height: 150px;
    
 }
 #top-top{
     font-family: 'Pacifico', cursive;
     /* background-blend-mode:overlay; */
     color:rgb(102, 207, 199);
-    font-size: 5vh;
+    font-size: 3vh;
     font-weight: 800;
 }
 #add-new-button{
@@ -58,6 +59,7 @@ img{
     margin-right: auto;
 }
 #two-lists{
+    margin-top:50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:15px;
