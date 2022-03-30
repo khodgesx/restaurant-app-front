@@ -29,7 +29,7 @@ function App() {
         <nav id="not-logged-in-nav">
           <button id="sign-up" onClick={setRegShow}>Sign Up</button>
           <Modal show={regShow} onHide={toggleReg}>
-            <SignUpComponent></SignUpComponent>
+            <SignUpComponent toggleReg={toggleReg}></SignUpComponent>
             <button onClick={toggleReg}>Close</button>
           </Modal>
 
