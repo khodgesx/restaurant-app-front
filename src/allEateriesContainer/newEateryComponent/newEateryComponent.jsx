@@ -2,29 +2,7 @@ import { useState } from "react"
 import './new.css'
 
 const NewEateryComponent = (props) =>{
-    //state of image for form input
-    // const [image, props.setImage] = useState('')
-    // //state of the image url from cloudinary
-    // const [url, setUrl] = useState('')
-    //funciton to be called when click -- Add Restaurant?
-    // const uploadImage = ()=>{
-    //     const data = new FormData()
-    //     console.log("image prop", props.image)
-    //     data.append('file', props.image)
-    //     data.append('upload_preset', 'restaurants')
-
-    //     console.log("this is img data", data)
-    //     //post request to cloudinary 
-    //     fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
-    //         method: "POST",
-    //         body: data
-    //     })
-    //     //what is the data?
-    //     // console.log(data)
-    //     .then(resp => resp.json())
-    //     .then(data => props.setUrl(data.url))
-    //     .catch(err=>console.log(err))
-    // }
+ 
     //state of new item before user inputs changes
     const [newPlace, setNewplace] = useState({
         name:'',
@@ -68,10 +46,6 @@ const NewEateryComponent = (props) =>{
                     <input onChange ={inputChange}type="text" name="cuisine" value={newPlace.cuisine}></input>
                 </div>
                 
-                {/* <div className="form-row">
-                    <label htmlFor="name">Photo:</label>
-                    <input onChange ={inputChange} type="text" name="img" value={newPlace.img}accept="image/png, image/jpeg"></input>
-                </div> */}
                  <div className="form-row">
                     <label htmlFor="name">Photo:</label>
                     <input onChange ={(e)=>props.setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
@@ -119,7 +93,7 @@ const NewEateryComponent = (props) =>{
                         </div>
                 </div>
 
-                <button type="submit">Add Restaurant</button>
+                <button onClick ={props.toggleShow}type="submit">Add Restaurant</button>
                 {/* <button onClick={toggleShow}>Cancel</button> */}
 
             </form>

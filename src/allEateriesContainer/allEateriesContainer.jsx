@@ -203,7 +203,10 @@ const AllEateriesContainer = () =>{
                     <Button id="add-new-button"onClick={setShowing}>Add New</Button>
                     <Modal show={showing} onHide={toggleShow}>
                         <div id="create-new">
-                            <NewEateryComponent image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}></NewEateryComponent>
+                            <NewEateryComponent 
+                            image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}
+                            toggleShow={toggleShow}
+                            ></NewEateryComponent>
                             <Button onClick={toggleShow}>Close</Button>
                         </div>
                     </Modal>
