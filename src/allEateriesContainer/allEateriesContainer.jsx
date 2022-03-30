@@ -50,6 +50,21 @@ const AllEateriesContainer = () =>{
             console.log(parsedResponse)
             if(parsedResponse.success){
                 setEateries([parsedResponse.data, ...eateries])
+
+                //vplaces= new eatery plus the old visited
+                const vPlaces = ([parsedResponse.data, ...visited])
+                //visited actually = filtering over that new array and checking if visited is true
+                const visitedPlaces = vPlaces.filter((place)=>{
+                return place.visited === true
+            })
+            //now set visited to that new array that was filtered
+            setVisited(visitedPlaces)
+
+            const tPlaces = ([parsedResponse.data, ...toTry])
+            const toTryPlaces = tPlaces.filter((place)=>{
+                return place.visited === false
+            })
+            setToTry(toTryPlaces)
             }else{
                 console.log(parsedResponse.data)
             }
