@@ -11,7 +11,8 @@ const NewEateryComponent = (props) =>{
         img: '',
         faveDish:'',
         notes:'',
-        priceLevel: "$"
+        priceLevel: "$",
+        user:''
     })
   
     //funciton for onChange

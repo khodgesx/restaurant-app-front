@@ -5,11 +5,12 @@ const LoginComponent = (props)=>{
     // const [userSession, setUserSession] = useState([])
     const [currentUser, setCurrentUser] = useState({
         username: '',
-        password: '',
+        password: ''
     })
 
 //check user to login
     const loginUser = async (possibleUser) =>{
+        console.log('login function')
   
         try {
             const loginResponse = await fetch (`${apiUrl}/users/login`,{
@@ -51,7 +52,7 @@ const LoginComponent = (props)=>{
         <div id="login-form">
             <h1 className="page-title">Login</h1>
             <section className="form-container">
-                <form onSubmit={submitLogin} class="login-form-container">
+                <form onSubmit={submitLogin} className="login-form-container">
                     
                     <div className="form-row-container">
                         <label htmlFor="username">Username:</label>
