@@ -35,7 +35,7 @@ function App() {
 
           <button id="login" onClick={setLogShow}>Login</button>
           <Modal show={logShow} onHide={toggleLog}>
-            <LoginComponent></LoginComponent>
+            <LoginComponent toggleLog={toggleLog}></LoginComponent>
             <button onClick={toggleLog}>Close</button>
           </Modal>
         </nav>

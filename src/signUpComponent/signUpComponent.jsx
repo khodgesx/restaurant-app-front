@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import {Container, Row, Col, Button, Alert, Breadcrumb, Form, Card, Modal} from 'react-bootstrap'
 import apiUrl from "../apiConfig";
 
 
@@ -12,7 +11,6 @@ const SignUpComponent = (props) =>{
         password: '',
         img: ''
     })
-  
 
 const [image, setImage] = useState('')
 //state of the image url from cloudinary
@@ -26,7 +24,7 @@ const [url, setUrl] = useState('')
             const data = new FormData()
             console.log("image prop", image)
             data.append('file', image)
-            data.append('upload_preset', 'users')
+            data.append('upload_preset', 'restaurants')
     
             const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
                 method: "POST",
@@ -49,6 +47,7 @@ const [url, setUrl] = useState('')
             console.log('resp from backend', parsedResponse)
             if(parsedResponse.success){
                 setUsers([parsedResponse.data, ...users])
+                console.log('success?', parsedResponse.data)
     
             }else{
                 console.log('no success?', parsedResponse.data)
