@@ -2,47 +2,17 @@ import apiUrl from "../apiConfig"
 import { useState } from "react"
 
 const LoginComponent = (props)=>{
-    // const [userSession, setUserSession] = useState([])
-    const [currentUser, setCurrentUser] = useState({
-        username: '',
-        password: ''
-    })
 
-//check user to login
-    const loginUser = async (possibleUser) =>{
-        console.log('login function')
-  
-        try {
-            const loginResponse = await fetch (`${apiUrl}/users/login`,{
-                method: "POST",
-                body: JSON.stringify(possibleUser),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const parsedResponse = await loginResponse.json()
-            console.log('resp from backend', parsedResponse)
-            if(parsedResponse.success){
-                setCurrentUser(possibleUser)
-                console.log('success!', parsedResponse.data)
-    
-            }else{
-                console.log('no success?', parsedResponse.data)
-            }
-        } catch (err) {
-            console.log(err)
-        }
-    }
     const inputChange = (e)=>{
-        setCurrentUser({
-            ...currentUser,
+        props.setCurrentUser({
+            ...props.currentUser,
             [e.target.name]: e.target.value
         })
     }
     const submitLogin = async (e)=>{
         e.preventDefault()
-        loginUser(currentUser)
-        console.log('on submit login:', currentUser)
+        props.loginUser(props.currentUser)
+        console.log('on submit login:', props.currentUser)
         
     }
 

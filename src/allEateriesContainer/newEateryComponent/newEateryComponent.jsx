@@ -92,6 +92,9 @@ const NewEateryComponent = (props) =>{
                                 <label htmlFor="visited-no">No</label>
                             </div>
                         </div>
+                        <div id="hidden">
+                            <input type="hidden" id="user" name="user" value={props.currentUser}></input>
+                        </div>
                 </div>
 
                 <button onClick ={props.toggleShow}type="submit">Add Restaurant</button>

@@ -9,7 +9,7 @@ import ('./allEateries.css')
 
 
 
-const AllEateriesContainer = () =>{
+const AllEateriesContainer = (props) =>{
     const [eateries, setEateries] = useState([])
     const [visited, setVisited] = useState([])
     const [toTry, setToTry] = useState ([])
@@ -26,7 +26,7 @@ const AllEateriesContainer = () =>{
     const createNew = async (newPlace) =>{
         try {
             const data = new FormData()
-            console.log("image prop", image)
+            // console.log("image prop", image)
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
     
@@ -187,6 +187,7 @@ const AllEateriesContainer = () =>{
             console.log(err)
         }     
     }
+  
    
    
 
@@ -208,6 +209,8 @@ const AllEateriesContainer = () =>{
                             <NewEateryComponent 
                             image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}
                             toggleShow={toggleShow}
+                            currentUser={props.currentUser}
+                            setCurrentUser={props.setCurrentUser}
                             ></NewEateryComponent>
                             <Button onClick={toggleShow}>Close</Button>
                         </div>
