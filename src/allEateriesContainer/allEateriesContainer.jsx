@@ -18,18 +18,19 @@ const AllEateriesContainer = (props) =>{
     //funciton for toggleShow
     const toggleShow =()=>setShowing(!showing)
     
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState()
     //state of the image url from cloudinary
     const [url, setUrl] = useState('')
   
     //create:
     const createNew = async (newPlace) =>{
         try {
-            const data = new FormData()
+            if(image){
+                const data = new FormData()
             // console.log("image prop", image)
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
-    
+            
             const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
                 method: "POST",
                 body: data
@@ -38,9 +39,15 @@ const AllEateriesContainer = (props) =>{
             const parsedImg = await imageUpload.json()
             newPlace.img = await parsedImg.url
     
-            await console.log("new place\n", newPlace)
+            }else{
+                newPlace.img = 'https://i.imgur.com/IsRaUa5.png'
+            }
+            
+            // await console.log("new place\n", newPlace)
             // newPlace.img = await url
-            const createResponse = await fetch (`${apiUrl}/restaurants`,{
+            const userId = JSON.parse(localStorage.getItem('currentUser'))
+            console.log(userId)
+            const createResponse = await fetch (`${apiUrl}/restaurants/${userId._id}`,{
                 method: "POST",
                 body: JSON.stringify(newPlace),
                 headers: {
@@ -51,14 +58,13 @@ const AllEateriesContainer = (props) =>{
             console.log(parsedResponse)
             if(parsedResponse.success){
                 setEateries([parsedResponse.data, ...eateries])
-
                 //vplaces= new eatery plus the old visited
                 const vPlaces = ([parsedResponse.data, ...visited])
                 //visited actually = filtering over that new array and checking if visited is true
                 const visitedPlaces = vPlaces.filter((place)=>{
                 return place.visited === true
             })
-            //now set visited to that new array that was filtered
+         
             setVisited(visitedPlaces)
 
             const tPlaces = ([parsedResponse.data, ...toTry])
@@ -76,7 +82,8 @@ const AllEateriesContainer = (props) =>{
     //get all:
     const getEateries = async ()=>{
         try{
-            const eateries = await fetch (`${apiUrl}/restaurants`)
+            const userId = JSON.parse(localStorage.getItem('currentUser'))._id
+            const eateries = await fetch (`${apiUrl}/restaurants/${userId}`)
             const parsedEateries = await eateries.json()
             setEateries(parsedEateries.data)
             // console.log(parsedEateries.data)
@@ -211,6 +218,7 @@ const AllEateriesContainer = (props) =>{
                             toggleShow={toggleShow}
                             currentUser={props.currentUser}
                             setCurrentUser={props.setCurrentUser}
+                            userId={props.userId}
                             ></NewEateryComponent>
                             <Button onClick={toggleShow}>Close</Button>
                         </div>

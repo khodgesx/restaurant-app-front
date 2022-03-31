@@ -11,7 +11,7 @@ const NewEateryComponent = (props) =>{
         img: '',
         faveDish:'',
         notes:'',
-        priceLevel: "$",
+        priceLevel:'$$',
         user:''
     })
   
@@ -28,7 +28,7 @@ const NewEateryComponent = (props) =>{
         e.preventDefault()
     //    await uploadImage()
         props.createNew(newPlace)
-        console.log(newPlace)
+        // console.log(newPlace)
         
     }
 
@@ -67,15 +67,15 @@ const NewEateryComponent = (props) =>{
                         <div className="radio-row-container">
                             <div className="radio-option-container">
                                 <input onChange ={inputChange} type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
-                                <label htmlFor="price-level-one">$</label>
+                                <label htmlFor="priceLevel">$</label>
                             </div>
                             <div className="radio-option-container">
-                                <input type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
-                                <label onChange ={inputChange} htmlFor="price-level-two">$$</label>
+                                <input onChange ={inputChange}type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
+                                <label htmlFor="priceLevel">$$</label>
                             </div>
                             <div className="radio-option-container">
                                 <input onChange ={inputChange} type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
-                                <label htmlFor="price-level-three">$$$</label>
+                                <label htmlFor="priceLevel">$$$</label>
                             </div>
                         </div>
                 </div>
@@ -92,9 +92,9 @@ const NewEateryComponent = (props) =>{
                                 <label htmlFor="visited-no">No</label>
                             </div>
                         </div>
-                        <div id="hidden">
-                            <input type="hidden" id="user" name="user" value={props.currentUser}></input>
-                        </div>
+                        {/* <div id="hidden">
+                            <input type="hidden" id="user" name="user" value={props.userId}></input>
+                        </div> */}
                 </div>
 
                 <button onClick ={props.toggleShow}type="submit">Add Restaurant</button>

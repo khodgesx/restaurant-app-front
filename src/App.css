@@ -15,16 +15,20 @@
   font-size: 30px;
   font-family: 'Pacifico', cursive;
 }
-#sign-up, #login{
+#sign-up, #login, #logout{
   padding: 10px 35px; 
-  background-color: rgb(221, 132, 109);
-  border:none;
-  color:white;
+  background-color: none;
+  border: solid 1px red;
+  color:rgb(56, 163, 136);
   margin: 5px;
   /* font-family: 'Ubuntu', sans-serif; */
   font-weight: 600;
+  font-family: 'Ubuntu', sans-serif;
 }
-
+#logout{
+  background-color: rgb(209, 86, 86);
+  color:white;
+}
 
 @media only screen and (min-width: 768px) {   
   #not-logged-in-nav{

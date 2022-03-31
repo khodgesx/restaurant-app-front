@@ -11,16 +11,19 @@ import apiUrl from './apiConfig';
 
 
 const App =()=> {
+
   const [regShow, setRegShow] = useState(false)
     const toggleReg =()=>setRegShow(!regShow) 
     const [logShow, setLogShow] = useState(false)
     const toggleLog =()=>setLogShow(!logShow) 
 
-     // const [userSession, setUserSession] = useState([])
      const [currentUser, setCurrentUser] = useState({
-      username: '',
-      password: ''
-  })
+        displayName:'',
+        username: '',
+        password: ''
+      })
+      const [userId, setUserId] = useState('')
+
     //check user to login
     const loginUser = async (possibleUser) =>{
 
@@ -33,12 +36,23 @@ const App =()=> {
               }
           })
           const parsedResponse = await loginResponse.json()
-          const currentUser = parsedResponse.data
-          const userId = currentUser._id
+      
           if(parsedResponse.success){
-              setCurrentUser(userId)
-              console.log('userId', userId)
-  
+              setCurrentUser({
+                // ...currentUser,
+                displayName: parsedResponse.data.displayName,
+                username: parsedResponse.data.username,
+                password: parsedResponse.data.password
+              })
+              localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
+              // console.log('parsed response display name:', parsedResponse.data.password)
+              // console.log('current user', currentUser)
+              // console.log('local user', localStorage.getItem('currentUser'))
+              // // console.log(localStorage.user.id)
+              // const loginId = JSON.parse(localStorage.getItem('currentUser'))._id
+              //if using ._id then make login =json.parse, then new variable =login._id
+              // setUserId(loginId)
+
           }else{
               console.log('no success?', parsedResponse.data)
           }
@@ -46,7 +60,12 @@ const App =()=> {
           console.log(err)
       }
   }
- 
+  const remove = ()=>{
+    localStorage.removeItem('currentUser')
+    console.log('logged out?', localStorage.getItem('currentUser'))
+  }
+  // const displayName = JSON.parse(localStorage.getItem('currentUser')).displayName
+  
 
   return (
     <div className="App">
@@ -57,7 +76,8 @@ const App =()=> {
       <h1 id="title">Yummy Decisions</h1>
       </div>
 
-      <div id="buttons">
+    
+    <div id="buttons">
         <nav id="not-logged-in-nav">
           <button id="sign-up" onClick={setRegShow}>Sign Up</button>
           <Modal show={regShow} onHide={toggleReg}>
@@ -75,17 +95,27 @@ const App =()=> {
             ></LoginComponent>
             <button onClick={toggleLog}>Close</button>
           </Modal>
+          <button id="logout"onClick={remove}>Logout</button>
         </nav>
       </div>
+      
+    
+
       </div>
+
+    
+
+
     
       
       {/* <h3>(if user is logged in):Welcome -displayName-</h3> */}
 
       <AllEateriesContainer
-      toggleLog={toggleLog}
-      currentUser={currentUser}
-      setCurrentUser={setCurrentUser}></AllEateriesContainer>
+        toggleLog={toggleLog}
+        currentUser={currentUser}
+        setCurrentUser={setCurrentUser}
+        userId={userId}
+      ></AllEateriesContainer>
     </div>
   );
 }
