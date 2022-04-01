@@ -13,9 +13,10 @@
     color:white;
     font-weight: 600;
     margin:5px;
-    height:40px;
-    width: 150px;
+    height:5vh;
+    width: 30vw;
     font-family: 'Ubuntu', sans-serif;
+    font-size: 12px;
 }
 #random-modal{
     border: solid 20px orange;
@@ -39,7 +40,10 @@
 #add-new-modal{
     border: solid 20px orange;
 }
-#add-new-modal button{
+#form-row{
+    padding:5px;
+}
+#add{
     background-color: orange;
     color:white;
     width: 200px;
@@ -173,18 +177,4 @@
     #single-visited h5, #single-to-try h5{
         font-size: 20px;
         }
-
-   
-    #bootstrap-example{
-        border: solid 3px black;
-        padding: 5px;
-        text-align: center;
-        height: 500px;
-        width: 500px;
-        overflow: scroll;
-        margin-top: 100px;
-        margin-left: auto;
-        margin-right: auto;
-
-    }
 }

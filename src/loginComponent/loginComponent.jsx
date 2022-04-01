@@ -23,22 +23,21 @@ const [userLogin, setUserLogin] = useState({
 
     return(
         <div id="login-form">
-            <h1 className="page-title">Login</h1>
             <section className="form-container">
                 <form onSubmit={submitLogin} className="login-form-container">
                     
-                    <div className="form-row-container">
+                    <div id="form-row-container">
                         <label htmlFor="username">Username:</label>
                         <input onChange={inputChange} type="text" name="username" value={userLogin.username}required/>
                     </div>
 
-                    <div className="form-row-container">
+                    <div id="form-row-container">
                         <label htmlFor="password">Password:</label>
                         <input onChange={inputChange} type="password" name="password" value={userLogin.password}required/>
                     </div>
-
-                    <input onClick={props.toggleLog}className="button-treat-main form-button" type="submit" value="Login"/>
-
+                    <div id="form-row-container">
+                        <input onClick={props.toggleLog}id="login-button" type="submit" value="Login"/>
+                    </div>
                 </form>
             </section>
             

@@ -60,33 +60,33 @@ const EditEateryComponent = (props)=>{
      
             <div id="edit-place-form">
             <form onSubmit={submitEdit} encType="multipart/form-data">
-                <div className="form-row">
+                <div id="form-row">
                     <label htmlFor="name">Restaurant Name: </label>
                     <input onChange ={inputChange} type="text" name="name" value={editPlace.name}></input>
                 </div>
 
-                <div className="form-row">
+                <div id="form-row">
                     <label htmlFor="name">Cuisine:</label>
                     <input onChange ={inputChange}type="text" name="cuisine" value={editPlace.cuisine}></input>
                 </div>
                 
                
-                <div className="form-row">
+                <div id="form-row">
                     {/* <label htmlFor="name">Photo:</label> */}
                     <input type="hidden" name="img" id="rest-pic"accept="image/png, image/jpeg" value={editPlace.img}placeholder='upload image'></input>
                 </div>
                 
-                <div className="form-row">
+                <div id="form-row">
                     <label htmlFor="name">Favorite Dish:</label>
                     <input onChange ={inputChange}type="text" name="faveDish" value={editPlace.faveDish}></input>
                 </div>
 
-                <div className="form-row"> 
+                <div id="form-row"> 
                     <label htmlFor="name">Notes:</label>
                     <input onChange ={inputChange} type="text" name="notes"value={editPlace.notes}></input>
                 </div>
 
-                <div className="form-row">
+                <div id="form-row">
                         <label htmlFor="price-level">Price:</label>
                         <div className="radio-row-container">
                             {/* {priceCheck} */}
@@ -106,7 +106,7 @@ const EditEateryComponent = (props)=>{
                         </div>
                 </div>
 
-                <div className="form-row">
+                <div id="form-row">
                         <label htmlFor="visited">Visited:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">

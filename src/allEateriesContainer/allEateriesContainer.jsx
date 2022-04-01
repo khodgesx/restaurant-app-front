@@ -216,6 +216,9 @@ const AllEateriesContainer = (props) =>{
                 <div id='mid-top'>
                     <Button id="add-new-button"onClick={setShowing}>Add New</Button>
                     <Modal id="add-new-modal"show={showing} onHide={toggleShow}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Add Restaurant Details Here:</Modal.Title>
+                        </Modal.Header>
                         <div id="create-new">
                             <NewEateryComponent 
                             image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}
@@ -224,7 +227,6 @@ const AllEateriesContainer = (props) =>{
                             setCurrentUser={props.setCurrentUser}
                             userId={props.userId}
                             ></NewEateryComponent>
-                            <Button onClick={toggleShow}>Close</Button>
                         </div>
                     </Modal>
 

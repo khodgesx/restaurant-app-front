@@ -36,7 +36,8 @@ const App =()=> {
           const parsedResponse = await loginResponse.json()
       
           if(parsedResponse.success){
-              localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
+             localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
+             window.location.reload()
           }else{
               console.log('no success?', parsedResponse.data)
           }
@@ -47,6 +48,7 @@ const App =()=> {
   const remove = ()=>{
     localStorage.removeItem('currentUser')
     console.log('logged out:', localStorage.getItem('currentUser'))
+    window.location.reload()
   }
 
 
@@ -92,20 +94,26 @@ if(user !== null){
 
         
           <button id="sign-up" onClick={setRegShow}>Sign Up</button>
-          <Modal show={regShow} onHide={toggleReg}>
+          <Modal id="reg"show={regShow} onHide={toggleReg}>
+          <Modal.Header closeButton>
+            <Modal.Title>Register</Modal.Title>
+            </Modal.Header>
             <SignUpComponent toggleReg={toggleReg}></SignUpComponent>
-            <button onClick={toggleReg}>Close</button>
+          
           </Modal>
 
           <button id="login" onClick={setLogShow}>Login</button>
-          <Modal id="login" show={logShow} onHide={toggleLog}>
+          <Modal id="login-modal" show={logShow} onHide={toggleLog}>
+            <Modal.Header closeButton>
+            <Modal.Title>Login</Modal.Title>
+            </Modal.Header>
             <LoginComponent 
               toggleLog={toggleLog}
               loginUser={loginUser}
               currentUser={currentUser}
               setCurrentUser={setCurrentUser}
             ></LoginComponent>
-            <button onClick={toggleLog}>Close</button>
+           
           </Modal>
           
         

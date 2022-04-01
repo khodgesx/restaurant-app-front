@@ -37,32 +37,32 @@ const NewEateryComponent = (props) =>{
         
             <div id="new-place-form">
             <form onSubmit={submitNew} encType="multipart/form">
-                <div className="form-row">
+                <div id="form-row">
                     <label htmlFor="name"> Restaurant Name:</label>
                     <input onChange ={inputChange} type="text" name="name" value={newPlace.name}></input>
                 </div>
 
-                <div className="form-row">
+                <div id="form-row">
                     <label htmlFor="name">Cuisine:</label>
                     <input onChange ={inputChange}type="text" name="cuisine" value={newPlace.cuisine}></input>
                 </div>
                 
-                 <div className="form-row">
+                 <div id="form-row">
                     <label htmlFor="name">Photo:</label>
                     <input onChange ={(e)=>props.setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
  
                 </div>   
-                <div className="form-row">
+                <div id="form-row">
                     <label htmlFor="name">Favorite Dish:</label>
                     <input onChange ={inputChange}type="text" name="faveDish"></input>
                 </div>
 
-                <div className="form-row"> 
+                <div id="form-row"> 
                     <label htmlFor="name">Notes:</label>
                     <input onChange ={inputChange} type="text" name="notes"value={newPlace.notes}></input>
                 </div>
 
-                <div className="form-row">
+                <div id="form-row">
                         <label htmlFor="price-level">Price:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">
@@ -80,7 +80,7 @@ const NewEateryComponent = (props) =>{
                         </div>
                 </div>
 
-                <div className="form-row">
+                <div id="form-row">
                         <label htmlFor="visited">Visited:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">
@@ -97,7 +97,7 @@ const NewEateryComponent = (props) =>{
                         </div> */}
                 </div>
 
-                <Button onClick ={props.toggleShow}type="submit">Add Restaurant</Button>
+                <Button id="add"onClick ={props.toggleShow}type="submit">Add Restaurant</Button>
              
 
             </form>

@@ -73,33 +73,32 @@ const [url, setUrl] = useState('')
 
     return(
         <div id="new-user-form"> 
-            <h1 className="page-title">Sign Up</h1>
 
             <section className="form-container">
                 <form onSubmit ={submitNew} className="new-user-form-container" encType="multipart/form-data">
 
-                    <div className="form-row-container">
+                    <div id="form-row-container">
                         <label htmlFor="displayName">Display Name:</label>
                         <input onChange ={inputChange}type="text" name="displayName" />
                     </div>
 
-                    <div className="form-row-container">
+                    <div id="form-row-container">
                         <label htmlFor="username">Username:</label>
                         <input onChange ={inputChange} type="text" name="username" />
                     </div>
 
-                    <div className="form-row-container">
+                    <div id="form-row-container">
                         <label htmlFor="password">Password:</label>
                         <input onChange ={inputChange} type="password" name="password" />
                     </div>
 
-                    <div className="form-row-container">
+                    <div id="form-row-container">
                         <label htmlFor="img">Profile Photo:</label>
                         <input onChange ={(e)=>setImage(e.target.files[0])} type="file" name="img" id="rest-pic"accept="image/png, image/jpeg" placeholder='upload image'></input>
                     </div>
-
-                    <input onClick={props.toggleReg} className="button-treat-main form-button" type="submit" value="Register"/>
-
+                    <div id="form-row-container">
+                        <input onClick={props.toggleReg} id="reg-button"type="submit" value="Register"/>
+                    </div>
                 </form>
             </section>
        
