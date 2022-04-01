@@ -139,6 +139,7 @@
     #add-new-button, #random-button{
         height:50px;
         width:150px;
+        font-size: 15px;
     }
     #random-modal h5{
         font-size: 30px;

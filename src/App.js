@@ -61,11 +61,14 @@ if(user !== null){
             <div id="welcome">
             <h1 id="title">Yummy Decisions</h1>
             </div>
+           
             <div id='user-message'>
             <h3>welcome {user.displayName}!</h3> 
             <button id="logout"onClick={remove}>Logout</button>
             </div>
-            
+            <div>
+            <img id="user-photo" src={user.img}></img>
+            </div>
             
         </div>
 

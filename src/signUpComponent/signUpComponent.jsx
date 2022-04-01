@@ -21,7 +21,8 @@ const [url, setUrl] = useState('')
   
     
         try {
-            const data = new FormData()
+            if(image){
+                const data = new FormData()
             console.log("image prop", image)
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
@@ -33,7 +34,10 @@ const [url, setUrl] = useState('')
     
             const parsedImg = await imageUpload.json()
             newUser.img = await parsedImg.url
-    
+            }else{
+                newUser.img = 'https://i.imgur.com/Ccw5H8d.png'
+            }
+            
             await console.log("new user\n", newUser)
             // newPlace.img = await url
             const createResponse = await fetch (`${apiUrl}/users`,{
