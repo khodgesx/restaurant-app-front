@@ -16,7 +16,7 @@ const AllEateriesContainer = (props) =>{
     const [randomShow, setRandomShow] = useState(false)
 
     const [showing, setShowing] = useState(false)
-    //funciton for toggleShow
+    //function for toggleShow
     const toggleShow =()=>setShowing(!showing)
     const toggleRandom =()=>setRandomShow(!randomShow)
     
@@ -242,10 +242,10 @@ const AllEateriesContainer = (props) =>{
                 </div>
                
                 
-                <div id='bottom-top'>
+                {/* <div id='bottom-top'>
                     <h1 id="mood">What is your Food Mood?</h1>
                 </div>
-            
+             */}
                 
             </section>
 
@@ -277,74 +277,7 @@ const AllEateriesContainer = (props) =>{
                     editPhotoF={editPhotoF}
                     image={image} setImage={setImage} url={url} setUrl={setUrl}
                 ></ToTryComponent>
-
-                {/* <EditEateryComponent 
-                    editOnePlace={editOnePlace} 
-                    toggleShow={toggleShow}
-                ></EditEateryComponent> */}
             </section>
-            {/* { eateries.map((place)=>{
-               return(
-                   <EditEateryComponent 
-                        key={place._id} 
-                        place={place}
-                        editOnePlace={editOnePlace}
-                        toggleShow={toggleShow}
-                        showing={showing}
-                        setShowing={setShowing}
-                    ></EditEateryComponent>
-               ) 
-                
-            })} */}
-
-
-
-
-
-
-            <section id="bootstrap-example">
-        <Container>
-        <Form>
-          <Row>
-            {/* md makes columns responsive for smaller screen */}
-            <Col md>
-            <Form.Group controlId="formEmail">
-              <Form.Label>Email Address</Form.Label>
-              <Form.Control type="email" placeholder="example@email.com"></Form.Control>
-              <Form.Text className="text-muted">your email address is your username</Form.Text>
-          </Form.Group>
-          
-            </Col>
-            <Col md>
-              <Form.Group>
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password"></Form.Control>
-            </Form.Group>
-            </Col>
-          </Row>
-          
-          <Button variant="secondary" type="submit">Login</Button>
-        </Form>
-      <Card className="mb-3"style={{color:"#000"}}>
-          <Card.Img src="https://i.imgur.com/IsRaUa5.png/75/50" />
-          <Card.Body>
-            <Card.Title>Card Example</Card.Title>
-            <Card.Text>This is an ex of react bootstrap cards</Card.Text>
-            <Button variant="primary">Read More</Button>
-          </Card.Body>
-        </Card>
-        <Breadcrumb>
-        <Breadcrumb.Item>Test</Breadcrumb.Item>
-        <Breadcrumb.Item>Test 2</Breadcrumb.Item>
-        <Breadcrumb.Item active>Test 3</Breadcrumb.Item>
-        </Breadcrumb>
-        <Alert variant="success">This is a button</Alert>
-        <Button>Test Button</Button>
-        </Container>
-
-        
-      </section>
-            
         </div>
     )
 

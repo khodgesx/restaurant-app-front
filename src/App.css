@@ -9,7 +9,12 @@
 #nav-no-login{
   display:flex;
   justify-content: space-between;
+  border: solid 1px black;
+  padding:5px;
+  margin:5px;
+  align-items: center;
 }
+
 #no-log-info img{
   display:block;
   height: 40vh;
@@ -19,9 +24,24 @@
 #nav-flex{
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 15px;
-  
+  align-items: flex-start;
+  border: solid 1px black;
+  padding:10px;
+  margin:5px;
+}
+#user-message{
+  display: grid;
+  grid-template-rows: auto;
+  margin-right:-5px;
+}
+#user-message h3{
+  font-size:15px;
+  font-family: 'Ubuntu', sans-serif;
+  color:rgb(56, 163, 136);
+  font-weight:800;
+}
+#user-message button{
+  width:20vw;
 }
 #title{
   text-align: left;
@@ -30,17 +50,21 @@
   font-family: 'Pacifico', cursive;
 }
 #sign-up, #login, #logout{
-  padding: 10px 35px; 
   background-color: none;
-  border: solid 1px red;
+  /* border: solid 1px red; */
+  border:none;
   color:rgb(56, 163, 136);
   margin: 5px;
-  /* font-family: 'Ubuntu', sans-serif; */
   font-weight: 600;
   font-family: 'Ubuntu', sans-serif;
 }
+#not-logged-in-nav{
+  display:grid;
+  grid-template-rows: 1fr 1fr;
+}
 #logout{
-  background-color: rgb(209, 86, 86);
+  /* background-color: rgb(209, 86, 86); */
+  background-color: orange;
   color:white;
 }
 #show-details{
@@ -79,11 +103,43 @@
   font-family: 'Ubuntu', sans-serif;
   font-size: 15px;
 }
+#new-place-form #edit-place-form{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight:800;
+  padding:5px;
+  height: 60vh;
+  overflow: scroll;
+}
+/* .edit-modal form{
+  border: solid 20px orange;
+} */
+#edit-modal{
+  border: solid 20px orange;
+}
 
+#save{
+  background-color: orange;
+  color:white;
+  width: 200px;
+  margin: 10px auto 10px auto;
+  border:none;
+}
+#delete{
+  background-color: rgb(238, 83, 83);
+  border:none;
+}
 @media only screen and (min-width: 768px) {   
   #not-logged-in-nav{
-    margin:10px 5px;
     height: 7vh;
+  }
+  #nav-no-login{
+    align-items: flex-start;
+  }
+  #no-log-info img{
+    display:block;
+    height: 75vh;
+    margin: 0 auto;
+  
   }
   #title{
     text-align: center;
@@ -92,5 +148,15 @@
   }
   #sign-up, #login{
     padding: 10px 35px; 
+  }
+  #user-message button{
+    width:10vw;
+  }
+  #top{
+    font-size: 25px;;
+  }
+  #new-place-form #edit-place-form{
+    height:max-content;
+    overflow: hidden;
   }
 }

@@ -7,8 +7,7 @@
     margin-bottom: 15px;
 }
 #add-new-button, #random-button{
-    /* background-color: rgb(221, 132, 109); */
-    background-color: rgb(206, 91, 100);
+    background-color: orange;
     border:none;
     border-radius: none;
     color:white;
@@ -46,7 +45,8 @@
     width: 200px;
     margin: 10px auto 10px auto;
 }
-#create-new{
+#create-new button{
+    border:none;
     
 }
 #mood{

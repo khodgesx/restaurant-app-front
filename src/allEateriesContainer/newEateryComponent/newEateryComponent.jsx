@@ -1,6 +1,7 @@
 import { useState } from "react"
 import './new.css'
-
+import bootstrap from "bootstrap"
+import {Button} from 'react-bootstrap'
 const NewEateryComponent = (props) =>{
  
     //state of new item before user inputs changes
@@ -38,7 +39,7 @@ const NewEateryComponent = (props) =>{
             <div id="new-place-form">
             <form onSubmit={submitNew} encType="multipart/form">
                 <div className="form-row">
-                    <label htmlFor="name">Restaurant Name:</label>
+                    <label htmlFor="name"> Restaurant Name:</label>
                     <input onChange ={inputChange} type="text" name="name" value={newPlace.name}></input>
                 </div>
 
@@ -97,7 +98,7 @@ const NewEateryComponent = (props) =>{
                         </div> */}
                 </div>
 
-                <button onClick ={props.toggleShow}type="submit">Add Restaurant</button>
+                <Button onClick ={props.toggleShow}type="submit">Add Restaurant</Button>
              
 
             </form>

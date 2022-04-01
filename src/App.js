@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import AllEateriesContainer from './allEateriesContainer/allEateriesContainer';
-import { Button, Modal} from 'react-bootstrap'
+import { Button, Modal, Nav, Navbar, NavDropdown} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import SignUpComponent from './signUpComponent/signUpComponent';
 import LoginComponent from './loginComponent/loginComponent';
@@ -52,6 +52,8 @@ const App =()=> {
   
   //if not logged in show not logged in nav & about/instructions
   //if logged in show logout button, & eateries container
+ 
+
 const user = JSON.parse(localStorage.getItem('currentUser'))
 if(user !== null){
   return(
@@ -61,8 +63,12 @@ if(user !== null){
             <div id="welcome">
             <h1 id="title">Yummy Decisions</h1>
             </div>
+            <div id='user-message'>
+            <h3>welcome {user.displayName}!</h3> 
             <button id="logout"onClick={remove}>Logout</button>
-             <h3>Welcome {user.displayName}!</h3> 
+            </div>
+            
+            
         </div>
 
      
@@ -87,6 +93,8 @@ if(user !== null){
         </div>
         <div id="no-log-buttons">
         <nav id="not-logged-in-nav">
+
+        
           <button id="sign-up" onClick={setRegShow}>Sign Up</button>
           <Modal show={regShow} onHide={toggleReg}>
             <SignUpComponent toggleReg={toggleReg}></SignUpComponent>
@@ -103,6 +111,7 @@ if(user !== null){
             ></LoginComponent>
             <button onClick={toggleLog}>Close</button>
           </Modal>
+          
         
         </nav>
       </div>

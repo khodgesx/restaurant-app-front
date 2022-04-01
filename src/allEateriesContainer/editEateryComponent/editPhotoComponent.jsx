@@ -52,7 +52,7 @@ const EditPhotoComponent = (props)=>{
                     <label htmlFor="name">Photo:</label>
                     <input onChange ={(e)=>props.setImage(e.target.files[0])} type="file" name="img" accept="image/png, image/jpeg"></input>
 
-                <Button onClick={props.close}type="submit">Save Changes</Button>
+                <Button id="save"onClick={props.close}type="submit">Save Changes</Button>
                 
 
             </form>

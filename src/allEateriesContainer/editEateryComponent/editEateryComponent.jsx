@@ -121,7 +121,7 @@ const EditEateryComponent = (props)=>{
                         </div>
                 </div>
 
-                <Button type="submit">Save Changes</Button>
+                <Button id="save"type="submit">Save Changes</Button>
                 
 
             </form>

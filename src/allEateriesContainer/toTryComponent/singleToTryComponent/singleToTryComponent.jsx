@@ -32,7 +32,7 @@ const SingleToTryComponent = (props) =>{
             </Modal>
 
             <Button className="edit-button"onClick={handleShow}>Edit</Button>
-            <Modal show={modalShow} onHide={handleClose}>
+            <Modal id="edit-modal"show={modalShow} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Restaurant</Modal.Title>
                 </Modal.Header>
@@ -44,19 +44,19 @@ const SingleToTryComponent = (props) =>{
                             place={props.tPlace}
                             editOnePlace={props.editOnePlace}
                     ></EditEateryComponent>
-                    <Button variant="warning" onClick={()=>{props.deletePlace(props.tPlace._id)}}>Delete</Button>
+                    <Button id="delete" onClick={()=>{props.deletePlace(props.tPlace._id)}}>Delete</Button>
                 </Modal.Body>
-               <Modal.Footer>
+               {/* <Modal.Footer>
                    <Button onClick={handleClose}>Close</Button>
-               </Modal.Footer>
+               </Modal.Footer> */}
             </Modal>
 
             <Button className="edit-button" onClick={show}>Update Photo</Button>
-            <Modal show={photoShow} onHide={close}>
+            <Modal id="edit-modal"show={photoShow} onHide={close}>
                 <Modal.Header closeButton>
                     <Modal.Title>Update Photo</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body >
                     <EditPhotoComponent
                     key={props.tPlace._id} 
                     showing={props.showing}
@@ -68,9 +68,9 @@ const SingleToTryComponent = (props) =>{
                     close={close}
                 ></EditPhotoComponent>
                 </Modal.Body>
-               <Modal.Footer>
+               {/* <Modal.Footer>
                    <Button onClick={close}>Close</Button>
-               </Modal.Footer>
+               </Modal.Footer> */}
             </Modal>
 
             

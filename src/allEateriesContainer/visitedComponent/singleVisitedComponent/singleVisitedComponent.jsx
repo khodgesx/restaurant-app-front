@@ -33,11 +33,11 @@ const SingleVisitedComponent = (props)=>{
             </Modal>
 
             <Button className="edit-button" onClick={handleShow}>Edit</Button>
-            <Modal show={modalShow} onHide={handleClose}>
+            <Modal id="edit-modal"show={modalShow} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Restaurant</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body >
                     <EditEateryComponent
                     key={props.vPlace._id} 
                     showing={props.showing}
@@ -46,19 +46,19 @@ const SingleVisitedComponent = (props)=>{
                     place={props.vPlace}
                     editOnePlace={props.editOnePlace}
                 ></EditEateryComponent>
-                <Button variant="warning" onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</Button>
+                <Button id="delete" onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</Button>
                 </Modal.Body>
                <Modal.Footer>
-                   <Button onClick={handleClose}>Close</Button>
+                   {/* <Button onClick={handleClose}>Close</Button> */}
                </Modal.Footer>
             </Modal>
             
             <Button className="edit-button" onClick={show}>Update Photo</Button>
-            <Modal show={photoShow} onHide={close}>
+            <Modal id="edit-modal"className="edit-modal"show={photoShow} onHide={close}>
                 <Modal.Header closeButton>
                     <Modal.Title>Update Photo</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
+                <Modal.Body  >
                     <EditPhotoComponent
                     key={props.vPlace._id} 
                     showing={props.showing}
@@ -71,7 +71,7 @@ const SingleVisitedComponent = (props)=>{
                 ></EditPhotoComponent>
                 </Modal.Body>
                <Modal.Footer>
-                   <Button onClick={close}>Close</Button>
+                   {/* <Button onClick={close}>Close</Button> */}
                </Modal.Footer>
             </Modal>
 
