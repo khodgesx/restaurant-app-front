@@ -114,7 +114,10 @@
     font-size: 12px;
 }
 
-
+#top-container{
+    display:grid;
+    height: 20vh;
+}
 
 
 @media only screen and (min-width: 768px) {   
@@ -124,8 +127,7 @@
         padding-top:0;
     }
     #top-container{
-        display:grid;
-        height: auto;
+        height: 25vh;
     }
     #mid-top{
         height:fit-content;

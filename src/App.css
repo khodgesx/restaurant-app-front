@@ -12,14 +12,14 @@
   border: solid 1px black;
   padding:5px;
   margin:5px;
-  align-items: center;
+  /* align-items: center; */
+  height: 15vh;
 }
 
 #no-log-info img{
   display:block;
   height: 40vh;
   margin: 0 auto;
-
 }
 #nav-flex{
   display: flex;
@@ -74,12 +74,15 @@
 }
 #deets-title{
   font-family: 'Monoton', cursive;
+  color:rgb(10, 114, 88);
 }
 #show-details button{
   background-color: orange;
   color:white;
   width: 200px;
   margin: 10px auto 10px auto;
+  border:none;
+  font-weight:800;
 }
 #all-eateries{
   padding:25px;
@@ -116,6 +119,10 @@
 #edit-modal{
   border: solid 20px orange;
 }
+#login{
+  /* border: solid 20px orange; */
+  font-family: 'Ubuntu', sans-serif;
+}
 
 #save{
   background-color: orange;
@@ -130,10 +137,11 @@
 }
 @media only screen and (min-width: 768px) {   
   #not-logged-in-nav{
-    height: 7vh;
+    height: 5vh;
   }
   #nav-no-login{
     align-items: flex-start;
+    height: 18vh;
   }
   #no-log-info img{
     display:block;
@@ -153,7 +161,7 @@
     width:10vw;
   }
   #top{
-    font-size: 25px;;
+    font-size: 25px;
   }
   #new-place-form #edit-place-form{
     height:max-content;

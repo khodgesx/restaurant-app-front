@@ -1,5 +1,4 @@
 import { useState } from "react"
-import './new.css'
 import bootstrap from "bootstrap"
 import {Button} from 'react-bootstrap'
 const NewEateryComponent = (props) =>{

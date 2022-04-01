@@ -102,7 +102,7 @@ if(user !== null){
           </Modal>
 
           <button id="login" onClick={setLogShow}>Login</button>
-          <Modal show={logShow} onHide={toggleLog}>
+          <Modal id="login" show={logShow} onHide={toggleLog}>
             <LoginComponent 
               toggleLog={toggleLog}
               loginUser={loginUser}
@@ -125,8 +125,8 @@ if(user !== null){
                 <div id='midtop'>
                     <p>
                         Sign Up & Sign In to get access to your own personal Restaurant Organizer.
-                        Your restaurants will be sorted by places you've been to or not. 
-                        This way, when you come back you can pick from your <em>tried and true</em> or 
+                        Your restaurants will be sorted by places you've been to or places you have yet to try. 
+                        <br></br><br></br>You will be able to view and pick from your <em>tried and true</em> or 
                         from your <em>something new</em> lists.
                     </p>
                 </div>
