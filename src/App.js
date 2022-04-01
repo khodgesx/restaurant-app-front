@@ -48,11 +48,7 @@ const App =()=> {
     localStorage.removeItem('currentUser')
     console.log('logged out:', localStorage.getItem('currentUser'))
   }
-  // const displayName = JSON.parse(localStorage.getItem('currentUser')).displayName
-  
-  //if not logged in show not logged in nav & about/instructions
-  //if logged in show logout button, & eateries container
- 
+
 
 const user = JSON.parse(localStorage.getItem('currentUser'))
 if(user !== null){
@@ -135,8 +131,7 @@ if(user !== null){
                 </div>
         </div>
       
- 
-    {/* <footer><h4>Enjoy!</h4></footer> */}
+
 
       </div>
   );
