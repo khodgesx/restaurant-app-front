@@ -45,10 +45,11 @@ const EditEateryComponent = (props)=>{
                     <input onChange ={inputChange}type="text" name="cuisine" value={editPlace.cuisine}></input>
                 </div>
                 
-                {/* <div className="form-row">
-                    <label htmlFor="name">Photo:</label>
-                    <input onChange ={inputChange} type="text" name="img" value={editPlace.img}accept="image/png, image/jpeg"></input>
-                </div> */}
+               
+                <div className="form-row">
+                    {/* <label htmlFor="name">Photo:</label> */}
+                    <input type="hidden" name="img" id="rest-pic"accept="image/png, image/jpeg" value={editPlace.img}placeholder='upload image'></input>
+                </div>
                 
                 <div className="form-row">
                     <label htmlFor="name">Favorite Dish:</label>

@@ -56,6 +56,7 @@ const SingleVisitedComponent = (props)=>{
                     place={props.vPlace}
                     editPhotoF={props.editPhotoF}
                     image={props.image} setImage={props.setImage} url={props.url} setUrl={props.setUrl}
+                    close={close}
                 ></EditPhotoComponent>
                 </Modal.Body>
                <Modal.Footer>

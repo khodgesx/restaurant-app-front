@@ -13,10 +13,12 @@ const AllEateriesContainer = (props) =>{
     const [eateries, setEateries] = useState([])
     const [visited, setVisited] = useState([])
     const [toTry, setToTry] = useState ([])
+    const [randomShow, setRandomShow] = useState(false)
 
     const [showing, setShowing] = useState(false)
     //funciton for toggleShow
     const toggleShow =()=>setShowing(!showing)
+    const toggleRandom =()=>setRandomShow(!randomShow)
     
     const [image, setImage] = useState()
     //state of the image url from cloudinary
@@ -109,6 +111,7 @@ const AllEateriesContainer = (props) =>{
     //get random choice:
      const [random, setRandom] = useState({})
      const getRandom = ()=>{
+          toggleRandom()
           const newRandom = eateries[Math.floor(Math.random()*eateries.length)]
           setRandom(newRandom)
      }
@@ -116,6 +119,7 @@ const AllEateriesContainer = (props) =>{
     //edit:
     const editOnePlace = async (idToEdit, placeToEdit)=>{
         try{
+
             const editResponse = await fetch(`${apiUrl}/restaurants/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(placeToEdit),
@@ -224,10 +228,17 @@ const AllEateriesContainer = (props) =>{
                         </div>
                     </Modal>
 
+                    
                     <div className="random">
                         <Button id="random-button"onClick={getRandom}>Choose for me!</Button>
+                        <Modal id="random-modal" show={!randomShow}onHide={setRandomShow}>
                         <h5>{random.name}</h5>
+                        <button onClick={toggleRandom}>Close</button>
+                        </Modal>
                     </div>
+                    
+
+                    
                 </div>
                
                 

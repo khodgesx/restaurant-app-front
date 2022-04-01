@@ -1,4 +1,5 @@
 import EditEateryComponent from "../../editEateryComponent/editEateryComponent"
+import EditPhotoComponent from "../../editEateryComponent/editPhotoComponent"
 import './singleTry.css'
 import {Modal, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -9,6 +10,10 @@ const SingleToTryComponent = (props) =>{
     const handleClose =()=> setModalShow(false)
     const handleShow =()=> setModalShow(true)
 
+    const [photoShow, setPhotoShow] = useState(false)
+    const close =()=> setPhotoShow(false)
+    const show =()=> setPhotoShow(true)
+    
     return(
         <div id="single-to-try">
             <h4>{props.tPlace.name}</h4>
@@ -35,26 +40,27 @@ const SingleToTryComponent = (props) =>{
                </Modal.Footer>
             </Modal>
 
-            {/* <Button className="edit-button" onClick={show}>Update Photo</Button>
+            <Button className="edit-button" onClick={show}>Update Photo</Button>
             <Modal show={photoShow} onHide={close}>
                 <Modal.Header closeButton>
                     <Modal.Title>Update Photo</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <EditPhotoComponent
-                    key={props.vPlace._id} 
+                    key={props.tPlace._id} 
                     showing={props.showing}
                     setShowing={props.setShowing}
                     toggleShow={props.toggleShow}
-                    place={props.vPlace}
+                    place={props.tPlace}
                     editPhotoF={props.editPhotoF}
                     image={props.image} setImage={props.setImage} url={props.url} setUrl={props.setUrl}
+                    close={close}
                 ></EditPhotoComponent>
                 </Modal.Body>
                <Modal.Footer>
                    <Button onClick={close}>Close</Button>
                </Modal.Footer>
-            </Modal> */}
+            </Modal>
 
             
            
