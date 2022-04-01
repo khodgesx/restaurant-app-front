@@ -13,12 +13,24 @@ const SingleToTryComponent = (props) =>{
     const [photoShow, setPhotoShow] = useState(false)
     const close =()=> setPhotoShow(false)
     const show =()=> setPhotoShow(true)
+
+    //see more details:
+    const [infoModal, setInfoModal] = useState(false)
+    const closeInfo = ()=> setInfoModal(false)
+    const showInfo = ()=> setInfoModal(true)
     
     return(
         <div id="single-to-try">
             <h4>{props.tPlace.name}</h4>
-            <img alt ="restaurant"src={props.tPlace.img}></img>
+            <img onClick ={showInfo}alt ="restaurant"src={props.tPlace.img}></img>
             <h5> Cuisine: {props.tPlace.cuisine}</h5>
+
+            <Modal id="show-details"show={infoModal} onHide={closeInfo}>
+                <h3 id="deets-title">{props.tPlace.name}</h3>
+                <h3><strong>What you get:</strong> {props.tPlace.cuisine}</h3>
+                <h3><strong>the deets:</strong> {props.tPlace.notes ? props.tPlace.notes : 'nothing to report yet...'}</h3>
+                <button onClick={closeInfo}>Close</button>
+            </Modal>
 
             <Button className="edit-button"onClick={handleShow}>Edit</Button>
             <Modal show={modalShow} onHide={handleClose}>

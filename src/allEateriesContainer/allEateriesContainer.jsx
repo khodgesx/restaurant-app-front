@@ -66,7 +66,6 @@ const AllEateriesContainer = (props) =>{
                 const visitedPlaces = vPlaces.filter((place)=>{
                 return place.visited === true
             })
-         
             setVisited(visitedPlaces)
 
             const tPlaces = ([parsedResponse.data, ...toTry])
@@ -74,6 +73,7 @@ const AllEateriesContainer = (props) =>{
                 return place.visited === false
             })
             setToTry(toTryPlaces)
+            
             }else{
                 console.log(parsedResponse.data)
             }
@@ -140,6 +140,7 @@ const AllEateriesContainer = (props) =>{
             console.log(err)
         }
     }
+ 
 
     //edit photo:
     const editPhotoF = async (idToEdit, placeToEdit)=>{
@@ -167,7 +168,6 @@ const AllEateriesContainer = (props) =>{
             })
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
-                // console.log(placeToEdit)
                 const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
                 setVisited(newArray)
                 const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
@@ -178,8 +178,7 @@ const AllEateriesContainer = (props) =>{
             console.log(err)
         }
     }
-
-    //delete: ISSUE: not updating list - state issue? use effect issue?
+    //delete: 
     const deletePlace = async (idToDelete) =>{
         try{
             const deleteResponse = await fetch (`${apiUrl}/restaurants/${idToDelete}`,{

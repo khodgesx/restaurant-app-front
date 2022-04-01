@@ -7,19 +7,31 @@ import { useState } from 'react'
 
 
 const SingleVisitedComponent = (props)=>{
+    //edit form:
     const [modalShow, setModalShow] = useState(false)
     const handleClose =()=> setModalShow(false)
     const handleShow =()=> setModalShow(true)
-
+    //edit photo:
     const [photoShow, setPhotoShow] = useState(false)
     const close =()=> setPhotoShow(false)
     const show =()=> setPhotoShow(true)
+    //see more details:
+    const [infoModal, setInfoModal] = useState(false)
+    const closeInfo = ()=> setInfoModal(false)
+    const showInfo = ()=> setInfoModal(true)
 
     return(
         <div id="single-visited">
             <h4>{props.vPlace.name}</h4>
-            <img alt ="restaurant"src={props.vPlace.img}></img>
+            <img onClick ={showInfo} alt ="restaurant"src={props.vPlace.img}></img>
             <h5> Cuisine: {props.vPlace.cuisine}</h5>
+
+            <Modal id="show-details"show={infoModal} onHide={closeInfo}>
+                <h3 id="deets-title">{props.vPlace.name}</h3>
+                <h3><strong>What you get:</strong> {props.vPlace.cuisine}</h3>
+                <h3><strong>the deets:</strong> {props.vPlace.notes ? props.vPlace.notes : 'nothing to report yet...'}</h3>
+                <button onClick={closeInfo}>Close</button>
+            </Modal>
 
             <Button className="edit-button" onClick={handleShow}>Edit</Button>
             <Modal show={modalShow} onHide={handleClose}>

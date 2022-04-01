@@ -38,21 +38,7 @@ const App =()=> {
           const parsedResponse = await loginResponse.json()
       
           if(parsedResponse.success){
-              setCurrentUser({
-                // ...currentUser,
-                displayName: parsedResponse.data.displayName,
-                username: parsedResponse.data.username,
-                password: parsedResponse.data.password
-              })
               localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
-              // console.log('parsed response display name:', parsedResponse.data.password)
-              // console.log('current user', currentUser)
-              // console.log('local user', localStorage.getItem('currentUser'))
-              // // console.log(localStorage.user.id)
-              // const loginId = JSON.parse(localStorage.getItem('currentUser'))._id
-              //if using ._id then make login =json.parse, then new variable =login._id
-              // setUserId(loginId)
-
           }else{
               console.log('no success?', parsedResponse.data)
           }
@@ -62,10 +48,12 @@ const App =()=> {
   }
   const remove = ()=>{
     localStorage.removeItem('currentUser')
-    console.log('logged out?', localStorage.getItem('currentUser'))
+    console.log('logged out:', localStorage.getItem('currentUser'))
   }
   // const displayName = JSON.parse(localStorage.getItem('currentUser')).displayName
   
+  //if not logged in show not logged in nav & about/instructions
+  //if logged in show logout button, & eateries container
 
   return (
     <div className="App">

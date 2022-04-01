@@ -29,6 +29,20 @@
   background-color: rgb(209, 86, 86);
   color:white;
 }
+#show-details{
+  color:orange;
+  font-family: 'Ubuntu', sans-serif;
+  border:solid 20px orange;
+}
+#deets-title{
+  font-family: 'Monoton', cursive;
+}
+#show-details button{
+  background-color: orange;
+  color:white;
+  width: 200px;
+  margin: 10px auto 10px auto;
+}
 
 @media only screen and (min-width: 768px) {   
   #not-logged-in-nav{

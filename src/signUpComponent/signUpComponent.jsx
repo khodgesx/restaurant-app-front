@@ -47,7 +47,7 @@ const [url, setUrl] = useState('')
             console.log('resp from backend', parsedResponse)
             if(parsedResponse.success){
                 setUsers([parsedResponse.data, ...users])
-                console.log('success?', parsedResponse.data)
+                console.log('user created:', parsedResponse.data)
     
             }else{
                 console.log('no success?', parsedResponse.data)
