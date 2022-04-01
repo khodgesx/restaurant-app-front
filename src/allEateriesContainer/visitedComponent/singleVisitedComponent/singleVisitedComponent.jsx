@@ -1,6 +1,5 @@
 import EditEateryComponent from '../../editEateryComponent/editEateryComponent'
 import EditPhotoComponent from '../../editEateryComponent/editPhotoComponent'
-import './singleVisited.css'
 import {Modal, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { useState } from 'react'

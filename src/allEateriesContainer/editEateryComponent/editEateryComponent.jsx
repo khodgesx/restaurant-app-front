@@ -29,6 +29,32 @@ const EditEateryComponent = (props)=>{
         props.setShowing(false)
         
     }
+
+    // const priceCheck = () => {
+    //     if (props.place.priceLevel === "$") {
+    //         return(
+    //             <div className="radio-option-container">
+    //                             <input onChange ={inputChange} type="radio" name="priceLevel" checked value='$'></input>
+    //                             <label htmlFor="price-level-one">$</label>
+    //                         </div>
+    //         )
+    //     }else if(props.place.priceLevel === "$$"){
+    //         return(
+    //             <div className="radio-option-container">
+    //                             <input type="radio" name="priceLevel" checked value='$$'></input>
+    //                             <label onChange ={inputChange} htmlFor="price-level-two">$$</label>
+    //                         </div>
+    //         )
+    //     }else{
+    //         return(
+    //             <div className="radio-option-container">
+    //                             <input onChange ={inputChange} type="radio" name="priceLevel" checked value='$$$'></input>
+    //                             <label htmlFor="price-level-three">$$$</label>
+    //                         </div>
+    //         )
+    //     }
+    // }
+   
     
     return(
         <>
@@ -64,18 +90,20 @@ const EditEateryComponent = (props)=>{
                 <div className="form-row">
                         <label htmlFor="price-level">Price:</label>
                         <div className="radio-row-container">
+                            {/* {priceCheck} */}
                             <div className="radio-option-container">
-                                <input onChange ={inputChange} type="radio" name="priceLevel" value={editPlace.priceLevel}></input>
+                                <input onChange ={inputChange} type="radio" name="priceLevel" value='$'></input>
                                 <label htmlFor="price-level-one">$</label>
-                            </div>
-                            <div className="radio-option-container">
-                                <input type="radio" name="priceLevel" value={editPlace.priceLevel}></input>
+                            </div> 
+                             <div className="radio-option-container">
+                                <input type="radio" name="priceLevel" value='$$'></input>
                                 <label onChange ={inputChange} htmlFor="price-level-two">$$</label>
-                            </div>
-                            <div className="radio-option-container">
-                                <input onChange ={inputChange} type="radio" name="priceLevel" value={editPlace.priceLevel}></input>
+                            </div> 
+                             <div className="radio-option-container">
+                                <input onChange ={inputChange} type="radio" name="priceLevel" value='$$$'></input>
                                 <label htmlFor="price-level-three">$$$</label>
                             </div>
+
                         </div>
                 </div>
 

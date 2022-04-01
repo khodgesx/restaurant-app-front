@@ -8,8 +8,6 @@ import LoginComponent from './loginComponent/loginComponent';
 import apiUrl from './apiConfig';
 
 
-
-
 const App =()=> {
 
   const [regShow, setRegShow] = useState(false)
@@ -54,18 +52,40 @@ const App =()=> {
   
   //if not logged in show not logged in nav & about/instructions
   //if logged in show logout button, & eateries container
-
-  return (
+const user = JSON.parse(localStorage.getItem('currentUser'))
+if(user !== null){
+  return(
     <div className="App">
  
+        <div id='nav-flex'>
+            <div id="welcome">
+            <h1 id="title">Yummy Decisions</h1>
+            </div>
+            <button id="logout"onClick={remove}>Logout</button>
+             <h3>Welcome {user.displayName}!</h3> 
+        </div>
 
-      <div id='nav-flex'>
-      <div id="welcome">
-      <h1 id="title">Yummy Decisions</h1>
+     
+
+        <AllEateriesContainer
+            toggleLog={toggleLog}
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+            userId={userId}
+          ></AllEateriesContainer>
+
       </div>
+  )
+}else{
+   return (
+    <div className="App-no-login">
+ 
 
-    
-    <div id="buttons">
+      <div id='nav-no-login'>
+        <div id="welcome">
+        <h1 id="title">Yummy Decisions</h1>
+        </div>
+        <div id="no-log-buttons">
         <nav id="not-logged-in-nav">
           <button id="sign-up" onClick={setRegShow}>Sign Up</button>
           <Modal show={regShow} onHide={toggleReg}>
@@ -83,29 +103,36 @@ const App =()=> {
             ></LoginComponent>
             <button onClick={toggleLog}>Close</button>
           </Modal>
-          <button id="logout"onClick={remove}>Logout</button>
+        
         </nav>
       </div>
-      
-    
-
       </div>
 
-    
-
-
-    
+      <div id='no-log-info'>
+                <div id='top'>
+                <p id="welcome-tag">Keep track of the places you love to eat and those you're dying to try...
+                </p>
+                </div>
+                <div id='midtop'>
+                    <p>
+                        Sign Up & Sign In to get access to your own personal Restaurant Organizer.
+                        Your restaurants will be sorted by places you've been to or not. 
+                        This way, when you come back you can pick from your <em>tried and true</em> or 
+                        from your <em>something new</em> lists.
+                    </p>
+                </div>
+                <div id="bot-top">
+                    <img src='https://i.imgur.com/juBSKCa.jpg'></img>
+                </div>
+        </div>
       
-      {/* <h3>(if user is logged in):Welcome -displayName-</h3> */}
+ 
+    {/* <footer><h4>Enjoy!</h4></footer> */}
 
-      <AllEateriesContainer
-        toggleLog={toggleLog}
-        currentUser={currentUser}
-        setCurrentUser={setCurrentUser}
-        userId={userId}
-      ></AllEateriesContainer>
-    </div>
+      </div>
   );
 }
+}
+
 
 export default App;

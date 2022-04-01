@@ -168,7 +168,8 @@ const AllEateriesContainer = (props) =>{
             })
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
-                const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
+                const newArray = visited.map(place => place._id === idToEdit ? {...place, img:placeToEdit.img} : place)
+                console.log(newArray)
                 setVisited(newArray)
                 const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
                 setToTry(newArrayTwo)
@@ -214,7 +215,7 @@ const AllEateriesContainer = (props) =>{
                 
                 <div id='mid-top'>
                     <Button id="add-new-button"onClick={setShowing}>Add New</Button>
-                    <Modal show={showing} onHide={toggleShow}>
+                    <Modal id="add-new-modal"show={showing} onHide={toggleShow}>
                         <div id="create-new">
                             <NewEateryComponent 
                             image={image} setImage={setImage} url={url} setUrl={setUrl} createNew={createNew}
@@ -230,7 +231,7 @@ const AllEateriesContainer = (props) =>{
                     
                     <div className="random">
                         <Button id="random-button"onClick={getRandom}>Choose for me!</Button>
-                        <Modal id="random-modal" show={!randomShow}onHide={setRandomShow}>
+                        <Modal id="random-modal" show={randomShow}onHide={setRandomShow}>
                         <h5>{random.name}</h5>
                         <button onClick={toggleRandom}>Close</button>
                         </Modal>

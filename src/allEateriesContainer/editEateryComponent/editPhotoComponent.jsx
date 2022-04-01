@@ -27,19 +27,19 @@ const EditPhotoComponent = (props)=>{
     }
     //submit edit invokes editPhoto Function - takes two parameters
     //takes id and editPhoto state
-    const submitEditPhoto =(e)=>{
+    const submitEditPhoto = (e)=>{
         e.preventDefault();
         //change the function here:
-        props.editPhotoF(props.place._id, editPhoto)
+       props.editPhotoF(props.place._id, editPhoto)
         props.setShowing(false)
-        setEditPlace({
-            name: props.place.name,
-            cuisine: props.place.cuisine,
-            img: editPhoto,
-            faveDish: props.place.faveDish,
-            notes: props.place.notes,
-            priceLevel: props.place.priceLevel
-        })
+        // setEditPlace({
+        //     name: props.place.name,
+        //     cuisine: props.place.cuisine,
+        //     img: editPhoto,
+        //     faveDish: props.place.faveDish,
+        //     notes: props.place.notes,
+        //     priceLevel: props.place.priceLevel
+        // })
         
     }
     

@@ -66,15 +66,15 @@ const NewEateryComponent = (props) =>{
                         <label htmlFor="price-level">Price:</label>
                         <div className="radio-row-container">
                             <div className="radio-option-container">
-                                <input onChange ={inputChange} type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
+                                <input onChange ={inputChange} type="radio" name="priceLevel" value='$'></input>
                                 <label htmlFor="priceLevel">$</label>
                             </div>
                             <div className="radio-option-container">
-                                <input onChange ={inputChange}type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
+                                <input onChange ={inputChange}type="radio" name="priceLevel" value='$$'></input>
                                 <label htmlFor="priceLevel">$$</label>
                             </div>
                             <div className="radio-option-container">
-                                <input onChange ={inputChange} type="radio" name="priceLevel" value={newPlace.priceLevel}></input>
+                                <input onChange ={inputChange} type="radio" name="priceLevel" value='$$$'></input>
                                 <label htmlFor="priceLevel">$$$</label>
                             </div>
                         </div>

@@ -2,6 +2,20 @@
 .App {
   margin:5px;
 }
+.App-no-login{
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+}
+#nav-no-login{
+  display:flex;
+  justify-content: space-between;
+}
+#no-log-info img{
+  display:block;
+  height: 40vh;
+  margin: 0 auto;
+
+}
 #nav-flex{
   display: flex;
   justify-content: space-between;
@@ -43,12 +57,32 @@
   width: 200px;
   margin: 10px auto 10px auto;
 }
+#all-eateries{
+  padding:25px;
+ 
+}
+#top-container{
+  display:grid;
+  height: max-content;
+  grid-gap:15px;
+}
+#top-top, #top{
+  font-family: 'Pacifico', cursive;
+  color:rgb(102, 207, 199);
+  font-size: 3vh;
+  height:max-content;
+}
+#no-log-info{
+  padding: 10px;
+}
+#midtop p{
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+}
 
 @media only screen and (min-width: 768px) {   
   #not-logged-in-nav{
-    /* position:fixed; */
     margin:10px 5px;
-    /* background-color: rgb(170, 238, 235); */
     height: 7vh;
   }
   #title{

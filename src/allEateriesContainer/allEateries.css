@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Monoton&family=Pacifico&family=Ubuntu:wght@300&display=swap');
 
-#all-eateries{
-    padding:25px;
-   
-}
-#top-container{
-    display:grid;
-    height: max-content;
-    grid-gap:15px;
-}
-#top-top{
-    font-family: 'Pacifico', cursive;
-    /* background-blend-mode:overlay; */
-    color:rgb(102, 207, 199);
-    font-size: 3vh;
-    /* background-image: url('https://i.imgur.com/hEVDcSm.jpg');
-    background-size:cover; */
-    height:max-content;
-}
 #mid-top{
     display: flex;
     justify-content: space-evenly;
@@ -36,13 +18,36 @@
     width: 150px;
     font-family: 'Ubuntu', sans-serif;
 }
-.random h5{
+#random-modal{
+    border: solid 20px orange;
+}
+#random-modal h5{
     z-index: 1;
     padding: 10px;
     color: rgb(42, 25, 187);
     font-family: 'Monoton', cursive;
     font-size: 15px;
     letter-spacing: 5px;
+    text-align: center;
+}
+
+#random-modal button{
+    background-color: orange;
+    color:white;
+    width: 200px;
+    margin: 10px auto 10px auto;
+}
+#add-new-modal{
+    border: solid 20px orange;
+}
+#add-new-modal button{
+    background-color: orange;
+    color:white;
+    width: 200px;
+    margin: 10px auto 10px auto;
+}
+#create-new{
+    
 }
 #mood{
     font-family: 'Ubuntu', sans-serif;
@@ -88,12 +93,34 @@
 #all-eateries{
     grid-template-rows: 0.75fr 4fr 3fr;
 }
+#single-visited, #single-to-try{
+    border: solid 1px black;
+    padding:5px;
+    border-radius: 5%;
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#single-visited img, #single-to-try img{
+    width:30vw;
+    border: solid 1px black; 
+}
+#single-visited h4, #single-to-try h4{
+    color:rgb(54, 153, 153);
+    font-size: 15px;
+}
+#single-visited h5, #single-to-try h5{
+    font-size: 12px;
+}
+
+
+
+
 @media only screen and (min-width: 768px) {   
     #all-eateries{
-        /* border:solid 3px pink; */
         padding:25px;
         display:grid;
-        /* grid-gap: 75px; */
         padding-top:0;
     }
     #top-container{
@@ -107,7 +134,7 @@
         height:50px;
         width:150px;
     }
-    .random h5{
+    #random-modal h5{
         font-size: 30px;
     }
     #mood{
@@ -122,7 +149,6 @@
         padding-top:0;
         grid-gap:15px;
         text-align: center;
-        /* overflow: scroll; */
     }
    
 
@@ -130,6 +156,22 @@
         margin-top:0;
         font-size: 30px;
     }
+    #single-visited, #single-to-try{
+        width: 80%;
+        
+    }
+    #single-visited h4, #single-to-try h4{
+        font-size: 25px;
+    }
+
+    #single-visited img, #single-to-try img{
+        height: 15vh;
+        width:15vw;
+    }
+    #single-visited h5, #single-to-try h5{
+        font-size: 20px;
+        }
+
    
     #bootstrap-example{
         border: solid 3px black;
