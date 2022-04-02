@@ -2,6 +2,7 @@ import { useState } from "react"
 import {Modal, Button} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+/////THIS DOES NOT WORK YET
 const EditEateryComponent = (props)=>{
  
     //set state of place to prior values, unless changed

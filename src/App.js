@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import './App.css';
 import AllEateriesContainer from './allEateriesContainer/allEateriesContainer';
-import { Button, Modal, Nav, Navbar, NavDropdown} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import SignUpComponent from './signUpComponent/signUpComponent';
 import LoginComponent from './loginComponent/loginComponent';
+import EditUserComponent from './editUserComponent/editUserComponent';
 import apiUrl from './apiConfig';
 
 
@@ -14,11 +15,11 @@ const App =()=> {
     const toggleReg =()=>setRegShow(!regShow) 
     const [logShow, setLogShow] = useState(false)
     const toggleLog =()=>setLogShow(!logShow) 
+    const [editShow, setEditShow] = useState(false)
+    const toggleEdit =()=>setEditShow(!editShow)
 
      const [currentUser, setCurrentUser] = useState({
-        displayName:'',
-        username: '',
-        password: ''
+        displayName:''
       })
       const [userId, setUserId] = useState('')
 
@@ -45,12 +46,35 @@ const App =()=> {
           console.log(err)
       }
   }
+  //logout:
   const remove = ()=>{
     localStorage.removeItem('currentUser')
     console.log('logged out:', localStorage.getItem('currentUser'))
     window.location.reload()
   }
 
+  //edit user:
+  const editUser = async (idToEdit, userToEdit)=>{
+    try{
+        const idToEdit = user._id
+        const editResponse = await fetch(`${apiUrl}/users/${idToEdit}`, {
+            method:"PUT",
+            body:JSON.stringify(userToEdit),
+            headers:{
+                "Content-Type": "application/json"
+            }
+        })
+        const parsedEdit = await editResponse.json()
+        if(parsedEdit.success){
+      
+            setCurrentUser(parsedEdit)
+            console.log(currentUser)
+        }
+
+    }catch(err){
+        console.log(err)
+    }
+}
 
 const user = JSON.parse(localStorage.getItem('currentUser'))
 if(user !== null){
@@ -67,8 +91,24 @@ if(user !== null){
             <button id="logout"onClick={remove}>Logout</button>
             </div>
             <div>
-            <img id="user-photo" src={user.img}></img>
+            <img onClick={setEditShow}id="user-photo" src={user.img}></img>
             </div>
+      
+                    <Modal id="edit-user-modal"show={editShow} onHide={toggleEdit}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Update Display Name:</Modal.Title>
+                        </Modal.Header>
+                        <div id="edit-user-form">
+                            <EditUserComponent
+                            editUser={editUser}
+                            toggleEdit={toggleEdit}
+                            setEditShow={setEditShow}
+                            currentUser={currentUser}
+                            setCurrentUser={setCurrentUser}
+                            user={user}
+                            ></EditUserComponent>
+                        </div>
+                    </Modal>
             
         </div>
 
