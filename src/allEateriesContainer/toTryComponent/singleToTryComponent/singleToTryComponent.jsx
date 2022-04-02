@@ -28,6 +28,7 @@ const SingleToTryComponent = (props) =>{
                 <h3 id="deets-title">{props.tPlace.name}</h3>
                 <h3><strong>What you get:</strong> {props.tPlace.cuisine}</h3>
                 <h3><strong>the deets:</strong> {props.tPlace.notes ? props.tPlace.notes : 'nothing to report yet...'}</h3>
+                {/* <h3><strong>Favorite Order:</strong> {props.tPlace.faveDish ? props.tPlace.faveDish : 'nothing yet!'}</h3> */}
                 <button onClick={closeInfo}>Close</button>
             </Modal>
 

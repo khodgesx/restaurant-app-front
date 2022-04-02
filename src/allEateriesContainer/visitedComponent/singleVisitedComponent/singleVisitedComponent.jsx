@@ -29,6 +29,7 @@ const SingleVisitedComponent = (props)=>{
                 <h3 id="deets-title">{props.vPlace.name}</h3>
                 <h3><strong>What you get:</strong> {props.vPlace.cuisine}</h3>
                 <h3><strong>the deets:</strong> {props.vPlace.notes ? props.vPlace.notes : 'nothing to report yet...'}</h3>
+                <h3><strong>Favorite Order:</strong> {props.vPlace.faveDish ? props.vPlace.faveDish : ''}</h3>
                 <button onClick={closeInfo}>Close</button>
             </Modal>
 
