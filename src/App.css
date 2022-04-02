@@ -34,7 +34,7 @@
 }
 #user-photo{
 height:9vh;
-border:solid 1px black;
+/* border:solid 1px black; */
 border-radius: 50%;
 align-self: flex-end;
 }
