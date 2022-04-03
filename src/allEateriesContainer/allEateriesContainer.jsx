@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Container, Row, Col, Button, Alert, Breadcrumb, Form, Card, Modal} from 'react-bootstrap'
+import { Button, Modal} from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import NewEateryComponent from "./newEateryComponent/newEateryComponent";
 import ToTryComponent from "./toTryComponent/toTryComponent";
@@ -29,7 +29,6 @@ const AllEateriesContainer = (props) =>{
         try {
             if(image){
                 const data = new FormData()
-            // console.log("image prop", image)
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
             
@@ -44,9 +43,6 @@ const AllEateriesContainer = (props) =>{
             }else{
                 newPlace.img = 'https://i.imgur.com/IsRaUa5.png'
             }
-            
-            // await console.log("new place\n", newPlace)
-            // newPlace.img = await url
             const userId = JSON.parse(localStorage.getItem('currentUser'))
             console.log(userId)
             const createResponse = await fetch (`${apiUrl}/restaurants/${userId._id}`,{
@@ -88,7 +84,7 @@ const AllEateriesContainer = (props) =>{
             const eateries = await fetch (`${apiUrl}/restaurants/${userId}`)
             const parsedEateries = await eateries.json()
             setEateries(parsedEateries.data)
-            // console.log(parsedEateries.data)
+
             const vPlaces = parsedEateries.data
             const visitedPlaces = vPlaces.filter((place)=>{
                 return place.visited === true
@@ -129,7 +125,6 @@ const AllEateriesContainer = (props) =>{
             })
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
-                // console.log(placeToEdit)
                 const newArray = visited.map(place => place._id === idToEdit ? placeToEdit : place)
                 setVisited(newArray)
                 const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
@@ -148,7 +143,6 @@ const AllEateriesContainer = (props) =>{
             const data = new FormData()
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
-            
             //post to cloudinary
             const imageUpdate = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
                 method: "POST",
@@ -242,12 +236,6 @@ const AllEateriesContainer = (props) =>{
 
                     
                 </div>
-               
-                
-                {/* <div id='bottom-top'>
-                    <h1 id="mood">What is your Food Mood?</h1>
-                </div>
-             */}
                 
             </section>
 

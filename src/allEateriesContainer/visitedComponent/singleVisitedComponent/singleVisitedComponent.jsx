@@ -50,7 +50,6 @@ const SingleVisitedComponent = (props)=>{
                 <Button id="delete" onClick={()=>{props.deletePlace(props.vPlace._id)}}>Delete</Button>
                 </Modal.Body>
                <Modal.Footer>
-                   {/* <Button onClick={handleClose}>Close</Button> */}
                </Modal.Footer>
             </Modal>
             
@@ -71,9 +70,6 @@ const SingleVisitedComponent = (props)=>{
                     close={close}
                 ></EditPhotoComponent>
                 </Modal.Body>
-               <Modal.Footer>
-                   {/* <Button onClick={close}>Close</Button> */}
-               </Modal.Footer>
             </Modal>
 
 

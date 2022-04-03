@@ -28,7 +28,6 @@ const SingleToTryComponent = (props) =>{
                 <h3 id="deets-title">{props.tPlace.name}</h3>
                 <h3><strong>What you get:</strong> {props.tPlace.cuisine}</h3>
                 <h3><strong>the deets:</strong> {props.tPlace.notes ? props.tPlace.notes : 'nothing to report yet...'}</h3>
-                {/* <h3><strong>Favorite Order:</strong> {props.tPlace.faveDish ? props.tPlace.faveDish : 'nothing yet!'}</h3> */}
                 <button onClick={closeInfo}>Close</button>
             </Modal>
 
@@ -47,9 +46,7 @@ const SingleToTryComponent = (props) =>{
                     ></EditEateryComponent>
                     <Button id="delete" onClick={()=>{props.deletePlace(props.tPlace._id)}}>Delete</Button>
                 </Modal.Body>
-               {/* <Modal.Footer>
-                   <Button onClick={handleClose}>Close</Button>
-               </Modal.Footer> */}
+          
             </Modal>
 
             <Button className="edit-button" onClick={show}>Update Photo</Button>
@@ -69,9 +66,7 @@ const SingleToTryComponent = (props) =>{
                     close={close}
                 ></EditPhotoComponent>
                 </Modal.Body>
-               {/* <Modal.Footer>
-                   <Button onClick={close}>Close</Button>
-               </Modal.Footer> */}
+   
             </Modal>
 
             

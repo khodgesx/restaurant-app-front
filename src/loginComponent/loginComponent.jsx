@@ -1,4 +1,3 @@
-import apiUrl from "../apiConfig"
 import { useState } from "react"
 
 const LoginComponent = (props)=>{

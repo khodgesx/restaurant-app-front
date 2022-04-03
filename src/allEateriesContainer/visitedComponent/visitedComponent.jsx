@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import SingleVisitedComponent from "./singleVisitedComponent/singleVisitedComponent";
 import ('./visited.css')
 

@@ -21,8 +21,6 @@ const EditEateryComponent = (props)=>{
             [e.target.name]: e.target.value
         })
     }
-    //submit edit invokes editPlaceFunction - takes two parameters
-    //takes id and editPlace state
     const submitEdit =(e)=>{
         e.preventDefault();
         props.editOnePlace(props.place._id, editPlace)
@@ -73,7 +71,6 @@ const EditEateryComponent = (props)=>{
                 
                
                 <div id="form-row">
-                    {/* <label htmlFor="name">Photo:</label> */}
                     <input type="hidden" name="img" id="rest-pic"accept="image/png, image/jpeg" value={editPlace.img}placeholder='upload image'></input>
                 </div>
                 

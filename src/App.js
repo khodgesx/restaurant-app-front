@@ -38,6 +38,7 @@ const App =()=> {
       
           if(parsedResponse.success){
              localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
+             console.log(localStorage.getItem('currentUser'))
              window.location.reload()
           }else{
               console.log('no success?', parsedResponse.data)

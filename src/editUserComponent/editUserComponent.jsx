@@ -10,8 +10,6 @@ const EditUserComponent =(props)=>{
             [e.target.name]: e.target.value
         })
     }
-    //submit edit invokes editPlaceFunction - takes two parameters
-    //takes id and editPlace state
     const submitEdit =(e)=>{
         e.preventDefault();
         props.editUser(props.user._id, editName)

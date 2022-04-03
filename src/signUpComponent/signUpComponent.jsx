@@ -63,7 +63,6 @@ const [url, setUrl] = useState('')
     const inputChange = (e)=>{
         setNewUser({
             ...newUser,
-            //the name assigned in the form will get value for that specific input
             [e.target.name]: e.target.value
         })
     }

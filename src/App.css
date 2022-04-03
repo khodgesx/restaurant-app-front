@@ -22,9 +22,6 @@
   border:solid 1px black;
 }
 #nav-flex{
-  /* display: flex;
-  justify-content: space-between;
-  align-items: flex-start; */
   display:grid;
   grid-gap:5px;
   grid-template-columns: 6fr 1fr 1fr;
@@ -34,7 +31,6 @@
 }
 #user-photo{
 height:9vh;
-/* border:solid 1px black; */
 border-radius: 50%;
 align-self: flex-end;
 }

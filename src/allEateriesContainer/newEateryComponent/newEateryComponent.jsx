@@ -19,17 +19,13 @@ const NewEateryComponent = (props) =>{
     const inputChange = (e)=>{
         setNewplace({
             ...newPlace,
-            //the name assigned in the form will get value for that specific input
             [e.target.name]: e.target.value
         })
     }
     //function for submit onSubmit
     const submitNew = async (e)=>{
         e.preventDefault()
-    //    await uploadImage()
-        props.createNew(newPlace)
-        // console.log(newPlace)
-        
+        props.createNew(newPlace) 
     }
 
     return(
@@ -92,9 +88,6 @@ const NewEateryComponent = (props) =>{
                                 <label htmlFor="visited-no">No</label>
                             </div>
                         </div>
-                        {/* <div id="hidden">
-                            <input type="hidden" id="user" name="user" value={props.userId}></input>
-                        </div> */}
                 </div>
 
                 <Button id="add"onClick ={props.toggleShow}type="submit">Add Restaurant</Button>
