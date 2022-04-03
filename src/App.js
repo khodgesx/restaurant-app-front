@@ -92,7 +92,8 @@ if(user !== null){
             <button id="logout"onClick={remove}>Logout</button>
             </div>
             <div>
-            <img onClick={setEditShow}id="user-photo" src={user.img}></img>
+            {/* <img onClick={setEditShow}id="user-photo" src={user.img}></img> */}
+            <img id="user-photo" src={user.img}></img>
             </div>
       
                     <Modal id="edit-user-modal"show={editShow} onHide={toggleEdit}>
