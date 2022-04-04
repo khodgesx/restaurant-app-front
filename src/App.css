@@ -2,9 +2,13 @@
 .App {
   margin:5px;
 }
+
+
 .App-no-login{
   display: grid;
   grid-template-rows: 1fr 4fr;
+  margin: 5px;
+
 }
 #nav-no-login{
   display:flex;
@@ -17,9 +21,10 @@
 
 #no-log-info img{
   display:block;
-  height: 40vh;
+  height: 35vh;
   margin: 0 auto;
   border:solid 1px black;
+  width:95%;
 }
 #nav-flex{
   display:grid;
@@ -145,6 +150,10 @@ align-self: flex-end;
   border:none;
   width: 15vw;
   text-align: center;
+}
+#login-button{
+  width:20vw;
+  height: fit-content;
 }
 #reg-button{
   width:20vw;
