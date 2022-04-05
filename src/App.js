@@ -31,8 +31,8 @@ const App =()=> {
               method: "POST",
               body: JSON.stringify(possibleUser),
               headers: {
-                  // "Content-Type": "application/json"
-                  "accept": "application/json"
+                  "Content-Type": "application/json"
+                  // "accept": "application/json"
               }
           })
           const parsedResponse = await loginResponse.json()
