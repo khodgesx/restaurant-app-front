@@ -31,7 +31,8 @@ const App =()=> {
               method: "POST",
               body: JSON.stringify(possibleUser),
               headers: {
-                  "Content-Type": "application/json"
+                  // "Content-Type": "application/json"
+                  "accept": "application/json"
               }
           })
           const parsedResponse = await loginResponse.json()
@@ -62,8 +63,7 @@ const App =()=> {
             method:"PUT",
             body:JSON.stringify(userToEdit),
             headers:{
-                // "Content-Type": "application/json"
-                "Accept": "application/json"
+                "Content-Type": "application/json"
             }
         })
         const parsedEdit = await editResponse.json()
