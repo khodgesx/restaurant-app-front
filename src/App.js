@@ -63,7 +63,7 @@ const App =()=> {
             body:JSON.stringify(userToEdit),
             headers:{
                 // "Content-Type": "application/json"
-                "accept": "application/json"
+                "Accept": "application/json"
             }
         })
         const parsedEdit = await editResponse.json()
