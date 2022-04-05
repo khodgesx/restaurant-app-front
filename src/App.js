@@ -62,8 +62,8 @@ const App =()=> {
             method:"PUT",
             body:JSON.stringify(userToEdit),
             headers:{
-                "Content-Type": "application/json"
-                // "Content-Type": Accept
+                // "Content-Type": "application/json"
+                "accept": "application/json"
             }
         })
         const parsedEdit = await editResponse.json()
