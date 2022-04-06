@@ -1,7 +1,7 @@
 let apiUrl
 
 const apiUrls = {
-    production: "https://restaurant-app-back-end.herokuapp.com",
+    production: "https://yummy-decisions-backend.herokuapp.com",
     development: "http://localhost:3001"
 }
 
