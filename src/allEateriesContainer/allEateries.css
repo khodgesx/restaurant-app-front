@@ -164,6 +164,9 @@
         height: 15vh;
         width:15vw;
     }
+    #single-visited img:hover, #single-to-try img:hover{
+        border: dashed 5px orange;
+    }
     #single-visited h5, #single-to-try h5{
         font-size: 20px;
         }
