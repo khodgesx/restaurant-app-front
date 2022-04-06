@@ -108,8 +108,16 @@ const AllEateriesContainer = (props) =>{
      const [random, setRandom] = useState({})
      const getRandom = ()=>{
           toggleRandom()
-          const newRandom = eateries[Math.floor(Math.random()*eateries.length)]
+          if(eateries.length > 0){
+            const newRandom = eateries[Math.floor(Math.random()*eateries.length)]
           setRandom(newRandom)
+          }else{
+              const noRandom = {
+                  name: 'oops no restaurants added yet!'
+              }
+              setRandom(noRandom)
+          }
+          
      }
       
     //edit:
