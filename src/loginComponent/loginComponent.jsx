@@ -14,7 +14,7 @@ const [userLogin, setUserLogin] = useState({
     const submitLogin = async (e)=>{
         e.preventDefault()
         props.loginUser(userLogin)
-        console.log('on submit login:', userLogin.username)
+        // console.log('on submit login:', userLogin.username)
     }
    
 

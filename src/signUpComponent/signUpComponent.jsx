@@ -23,7 +23,7 @@ const [url, setUrl] = useState('')
         try {
             if(image){
                 const data = new FormData()
-            console.log("image prop", image)
+            // console.log("image prop", image)
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
     
@@ -52,10 +52,10 @@ const [url, setUrl] = useState('')
             console.log('resp from backend', parsedResponse)
             if(parsedResponse.success){
                 setUsers([parsedResponse.data, ...users])
-                console.log('user created:', parsedResponse.data)
+                // console.log('user created:', parsedResponse.data)
     
             }else{
-                console.log('no success?', parsedResponse.data)
+                // console.log('no success?', parsedResponse.data)
             }
         } catch (err) {
             console.log(err)
@@ -70,7 +70,7 @@ const [url, setUrl] = useState('')
     const submitNew = async (e)=>{
         e.preventDefault()
         createUser(newUser)
-        console.log('on submit create:', newUser)
+        // console.log('on submit create:', newUser)
         
     }
 

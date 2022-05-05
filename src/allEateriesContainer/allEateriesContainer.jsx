@@ -151,7 +151,7 @@ const AllEateriesContainer = (props) =>{
             const data = new FormData()
             data.append('file', image)
             data.append('upload_preset', 'restaurants')
-            //post to cloudinary
+            
             const imageUpdate = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
                 method: "POST",
                 body: data
@@ -171,7 +171,7 @@ const AllEateriesContainer = (props) =>{
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
                 const newArray = visited.map(place => place._id === idToEdit ? {...place, img:placeToEdit.img} : place)
-                console.log(newArray)
+        
                 setVisited(newArray)
                 const newArrayTwo = toTry.map(place => place._id === idToEdit ? placeToEdit : place)
                 setToTry(newArrayTwo)
