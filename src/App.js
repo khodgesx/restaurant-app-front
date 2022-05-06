@@ -70,7 +70,7 @@ const App =()=> {
         if(parsedEdit.success){
       
             setCurrentUser(parsedEdit)
-            console.log(currentUser)
+            // console.log(currentUser)
         }
 
     }catch(err){
@@ -85,7 +85,7 @@ if(user !== null){
  
         <div id='nav-flex'>
             <div id="welcome">
-            <h1 id="title">Yummy Decisions</h1>
+              <h1 id="title">Yummy Decisions</h1>
             </div>
            
             <div id='user-message'>

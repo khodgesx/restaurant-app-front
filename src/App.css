@@ -183,11 +183,13 @@ align-self: flex-end;
     height: 75vh;
     margin: 0 auto;
   }
-
+  #nav-flex{
+    height: 18vh;
+  }
   #title{
     text-align: left;
     margin: 5px;
-    font-size: 60px;
+    font-size: 6vh;
   }
   #sign-up, #login{
     padding: 10px 35px; 
@@ -203,7 +205,7 @@ align-self: flex-end;
     overflow: hidden;
   }
   #user-photo{
-    height:20vh;
+    height:15vh;
   }
   #user-message h3{
     font-size: 20px;
