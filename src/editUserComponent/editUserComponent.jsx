@@ -12,6 +12,7 @@ const EditUserComponent =(props)=>{
     }
     const submitEdit =(e)=>{
         e.preventDefault();
+        console.log(props.user._id, editName.name)
         props.editUser(props.user._id, editName)
         props.setEditShow(false)
         
@@ -20,8 +21,8 @@ const EditUserComponent =(props)=>{
         <div id="edit-user">
                 <form onSubmit={submitEdit}>
                 <div id="form-row">
-                    <label htmlFor="name">Display Name: </label>
-                    <input onChange ={inputChange} type="text" name="name" value={editName.displayName}></input>
+                    <label htmlFor="displayName">Display Name: </label>
+                    <input onChange ={inputChange} type="text" name="displayName" value={editName.displayName}></input>
                 </div>
                 
 

@@ -57,8 +57,10 @@ const App =()=> {
 
   //edit user:
   const editUser = async (idToEdit, userToEdit)=>{
+    console.log(idToEdit)
+    console.log(userToEdit)
     try{
-        const idToEdit = user._id
+        // const idToEdit = user._id
         const editResponse = await fetch(`${apiUrl}/users/${idToEdit}`, {
             method:"PUT",
             body:JSON.stringify(userToEdit),
@@ -67,10 +69,10 @@ const App =()=> {
             }
         })
         const parsedEdit = await editResponse.json()
+        console.log(parsedEdit)
         if(parsedEdit.success){
-      
-            setCurrentUser(parsedEdit)
-            // console.log(currentUser)
+          localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
+            setCurrentUser(parsedEdit.data)
         }
 
     }catch(err){
@@ -93,8 +95,8 @@ if(user !== null){
             <button id="logout"onClick={remove}>Logout</button>
             </div>
             <div>
-            {/* <img onClick={setEditShow}id="user-photo" src={user.img}></img> */}
-            <img id="user-photo" src={user.img}></img>
+            <img onClick={setEditShow}id="user-photo" src={user.img}></img>
+            {/* <img id="user-photo" src={user.img}></img> */}
             </div>
       
                     <Modal id="edit-user-modal"show={editShow} onHide={toggleEdit}>
