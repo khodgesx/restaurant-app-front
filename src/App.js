@@ -57,10 +57,7 @@ const App =()=> {
 
   //edit user:
   const editUser = async (idToEdit, userToEdit)=>{
-    console.log(idToEdit)
-    console.log(userToEdit)
     try{
-        // const idToEdit = user._id
         const editResponse = await fetch(`${apiUrl}/users/${idToEdit}`, {
             method:"PUT",
             body:JSON.stringify(userToEdit),
@@ -69,7 +66,6 @@ const App =()=> {
             }
         })
         const parsedEdit = await editResponse.json()
-        console.log(parsedEdit)
         if(parsedEdit.success){
           localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
             setCurrentUser(parsedEdit.data)

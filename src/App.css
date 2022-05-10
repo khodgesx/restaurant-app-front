@@ -161,8 +161,8 @@ align-self: flex-end;
 #save{
   background-color: orange;
   color:white;
-  width: 200px;
-  margin: 10px auto 10px auto;
+  width: 150px;
+  margin: 10px 5px 10px 5px;
   border:none;
 }
 
