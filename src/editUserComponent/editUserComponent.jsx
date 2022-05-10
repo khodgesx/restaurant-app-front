@@ -23,12 +23,34 @@ const EditUserComponent =(props)=>{
     }
 
     /////////edit photo/////////
+    const [image, setImage] = useState('')
     const [ editPhoto, setEditPhoto] = useState({
         img: props.currentUser.img
     })
     const editUserPhoto = async (idToEdit, userToEdit)=>{
         try{
-            const editResponse = await fetch(`${apiUrl}/users/${idToEdit}`, {
+        if(image){
+            const data = new FormData()
+            console.log("image prop", image)
+            data.append('file', image)
+            data.append('upload_preset', 'restaurants')
+
+        const imageUpload = await fetch('https://api.cloudinary.com/v1_1/dmc4kghoi/image/upload', {
+            method: "POST",
+            body: data
+        })
+
+        const parsedImg = await imageUpload.json()
+        editPhoto.img = await parsedImg.url
+        console.log(editPhoto)
+        console.log(editPhoto.img)
+        }else{
+            editPhoto.img = 'https://i.imgur.com/Ccw5H8d.png'
+        }
+        
+        await console.log("new photo\n", editPhoto)
+       
+            const editResponse = await fetch(`${apiUrl}/users/update-photo/${idToEdit}`, {
                 method:"PUT",
                 body:JSON.stringify(userToEdit),
                 headers:{
@@ -38,22 +60,18 @@ const EditUserComponent =(props)=>{
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
               localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
-                // setCurrentUser(parsedEdit.data)
+                console.log(localStorage.getItem('currentUser'))
             }
     
         }catch(err){
             console.log(err)
         }
     }
-    const imageChange=(e)=>{
-        setEditPhoto({
-            // ...editName,
-            [e.target.name]: e.target.files[0]
-        })
-    }
+
     const submitEditPhoto =(e)=>{
         e.preventDefault();
-        editUserPhoto(props.user._id, e.target.files[0])
+        editUserPhoto(props.user._id, editPhoto.img)
+        console.log('hello?')
         setEditPhotoModal(false) 
     }
     return(
@@ -70,13 +88,13 @@ const EditUserComponent =(props)=>{
                 
 
             </form>
-            {/* <button onClick={toggleEditPhoto} id="save">Update Photo</button> */}
+            <button onClick={toggleEditPhoto} id="save">Update Photo</button>
 
         <Modal show={editPhotoModal} onHide={toggleEditPhoto}>
-        <form onSubmit={submitEditPhoto}>
+        <form onSubmit={submitEditPhoto} encType="multipart/form-data">
                 <div id="form-row">
                     <label htmlFor="image">Change Photo: </label>
-                    <input onChange ={imageChange} type="file" name="img" />
+                    <input onChange={(e)=>setImage(e.target.files[0])} type="file" name="img" accept="image/png, image/jpeg" placeholder='upload image'/>
                 </div>
                 
 

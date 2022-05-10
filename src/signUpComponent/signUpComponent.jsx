@@ -18,8 +18,7 @@ const [url, setUrl] = useState('')
 
 //create user:
     const createUser = async (newUser) =>{
-  
-    
+
         try {
             if(image){
                 const data = new FormData()
