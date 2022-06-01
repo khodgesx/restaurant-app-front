@@ -39,7 +39,7 @@ const App =()=> {
       
           if(parsedResponse.success){
              localStorage.setItem('currentUser', JSON.stringify(parsedResponse.data))
-             console.log(localStorage.getItem('currentUser'))
+            //  console.log(localStorage.getItem('currentUser'))
              window.location.reload()
           }else{
               console.log('no success?', parsedResponse.data)
@@ -51,7 +51,7 @@ const App =()=> {
   //logout:
   const remove = ()=>{
     localStorage.removeItem('currentUser')
-    console.log('logged out:', localStorage.getItem('currentUser'))
+    // console.log('logged out:', localStorage.getItem('currentUser'))
     window.location.reload()
   }
 

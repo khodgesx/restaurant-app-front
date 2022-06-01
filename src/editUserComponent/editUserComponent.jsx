@@ -23,7 +23,7 @@ const EditUserComponent =(props)=>{
     }
 
     /////////edit photo/////////
-    const [image, setImage] = useState('')
+    const [image, setImage] = useState()
     const [ editPhoto, setEditPhoto] = useState({
         img: props.currentUser.img
     })
@@ -42,8 +42,9 @@ const EditUserComponent =(props)=>{
 
         const parsedImg = await imageUpload.json()
         editPhoto.img = await parsedImg.url
-        console.log(editPhoto)
-        console.log(editPhoto.img)
+       
+        // console.log('img object:',editPhoto)
+        console.log('img link', editPhoto.img)
         }else{
             editPhoto.img = 'https://i.imgur.com/Ccw5H8d.png'
         }
@@ -59,6 +60,7 @@ const EditUserComponent =(props)=>{
             })
             const parsedEdit = await editResponse.json()
             if(parsedEdit.success){
+                
               localStorage.setItem('currentUser', JSON.stringify(parsedEdit.data))
                 console.log(localStorage.getItem('currentUser'))
             }
@@ -70,8 +72,8 @@ const EditUserComponent =(props)=>{
 
     const submitEditPhoto =(e)=>{
         e.preventDefault();
-        editUserPhoto(props.user._id, editPhoto.img)
-        console.log('hello?')
+        // editUserPhoto(props.user._id, editPhoto.img)
+        editUserPhoto(props.user._id, image)
         setEditPhotoModal(false) 
     }
     return(
