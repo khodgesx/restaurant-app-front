@@ -48,7 +48,7 @@ const [url, setUrl] = useState('')
                 }
             })
             const parsedResponse = await createResponse.json()
-            console.log('resp from backend', parsedResponse)
+            // console.log('resp from backend', parsedResponse)
             if(parsedResponse.success){
                 setUsers([parsedResponse.data, ...users])
                 // console.log('user created:', parsedResponse.data)
